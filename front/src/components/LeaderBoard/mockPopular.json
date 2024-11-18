@@ -1,0 +1,80 @@
+{
+    "titles": [
+        "Rank",
+        "Collection",
+        "Price",
+        "Bought For"
+    ],
+    "nfts": [
+        {
+            "name": "CryptoPunk #1",
+            "image": "../assets/tempLogo.png",
+            "rank": 1,
+            "price": 120.5,
+            "priceBoughtFor": 100.0
+        },
+        {
+            "name": "Bored Ape #45",
+            "image": "../assets/tempLogo.png",
+            "rank": 2,
+            "price": 150.75,
+            "priceBoughtFor": 130.0
+        },
+        {
+            "name": "Mutant Ape #23",
+            "image": "../assets/tempLogo.png",
+            "rank": 3,
+            "price": 90.0,
+            "priceBoughtFor": 80.0
+        },
+        {
+            "name": "ArtBlocks #128",
+            "image": "../assets/tempLogo.png",
+            "rank": 4,
+            "price": 45.0,
+            "priceBoughtFor": 50.0
+        },
+        {
+            "name": "ArtBlocks #128",
+            "image": "../assets/tempLogo.png",
+            "rank": 5,
+            "price": 45.0,
+            "priceBoughtFor": 50.0
+        },
+        {
+            "name": "ArtBlocks #128",
+            "image": "../assets/tempLogo.png",
+            "rank": 6,
+            "price": 45.0,
+            "priceBoughtFor": 50.0
+        },
+        {
+            "name": "ArtBlocks #128",
+            "image": "../assets/tempLogo.png",
+            "rank": 7,
+            "price": 45.0,
+            "priceBoughtFor": 50.0
+        },
+        {
+            "name": "ArtBlocks #128",
+            "image": "../assets/tempLogo.png",
+            "rank": 8,
+            "price": 45.0,
+            "priceBoughtFor": 50.0
+        },
+        {
+            "name": "ArtBlocks #128",
+            "image": "../assets/tempLogo.png",
+            "rank": 9,
+            "price": 45.0,
+            "priceBoughtFor": 50.0
+        },
+        {
+            "name": "ArtBlocks #128",
+            "image": "../assets/tempLogo.png",
+            "rank": 10,
+            "price": 45.0,
+            "priceBoughtFor": 50.0
+        }
+    ]
+}

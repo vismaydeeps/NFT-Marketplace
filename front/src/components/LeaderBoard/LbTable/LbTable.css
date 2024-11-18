@@ -1,0 +1,72 @@
+.lbt-wrapper {
+    color: var(--clr-text);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 3rem; */
+    gap: 7rem;
+    font-weight: var(--fw-800);
+}
+
+.lbt-wrapper .lbt-column {
+    /* width: 90%; */
+}
+
+.lbt-wrapper .lbt-column .lbt-title {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    /* Adjust based on the number of columns */
+    /* text-align: center; */
+    font-weight: var(--fw-800);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    /* justify-items: center; */
+}
+
+.lbt-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.lbt-wrapper .lbt-content .lbt-nft-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    /* Adjust column widths */
+    align-items: center;
+    justify-items: flex-start;
+    gap: 1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: background-color 0.1s ease;
+}
+
+.lbt-wrapper .lbt-content .lbt-nft-wrapper:hover {
+    cursor: pointer;
+    /* background-color: var(--clr-neutral-hover); */
+    background: linear-gradient(to right, var(--clr-neutral-hover),rgba(0,0,0,0));
+
+}
+
+.lbt-wrapper .lbt-content .lbt-nft-wrapper .nft-img {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lbt-wrapper .lbt-content .lbt-nft-wrapper .nft-img img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.lbt-wrapper hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    margin: 1rem auto; /* Center and add spacing */
+    /* width: 90%; Adjust width to fit design */
+    /* opacity: 0.7;  */
+}

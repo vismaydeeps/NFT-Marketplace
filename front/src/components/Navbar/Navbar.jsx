@@ -15,8 +15,9 @@ const Navbar = () => {
                         <p>ClosedSea</p>
                     </div>
                     <ul>
-                        <li>Drops</li>
-                        <li>Stats</li>
+                        <li>Auctions</li>
+                        <li>For Sale</li>
+                        <li>Your NFTs</li>
                         <li>Create</li>
                     </ul>
                 </div>
