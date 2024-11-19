@@ -21,6 +21,7 @@ img {
   --clr-neutral-dark: #252525;
   --clr-neutral-hover: #373737;
   --clr-text: #F2F2F2;
+  --clr-blue : #1A65C7;
 
   --fw-400: 400;
   --fw-600: 600;
@@ -30,7 +31,7 @@ img {
   --fs-small: 12px;
   --fs-med: 14px;
   --fs-large: 16px;
-  --fs-extra-large : 24px;
+  --fs-extra-large: 30px;
 
   --ff-roboto: "Roboto-Regular";
 }
@@ -39,4 +40,3 @@ img {
 body {
   background-color: var(--clr-background);
 }
-

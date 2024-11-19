@@ -1,0 +1,81 @@
+.login-wrapper {
+    color: var(--clr-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.login-wrapper form {
+    background-color: var(--clr-neutral-dark);
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 20%;
+    border-radius: 1rem;
+}
+
+.login-wrapper .username-wrapper, .login-wrapper .password-wrapper{
+    display: flex;
+    padding: 1rem;
+    background-color: var(--clr-neutral-hover);
+    border-radius: 0.5rem;
+    width: 100%;
+}
+
+.login-wrapper .username-wrapper input, .login-wrapper .password-wrapper input{
+    background-color: var(--clr-neutral-hover);
+    color: var(--clr-text);
+    height: 2rem;
+    border: none;
+    width: 100%;
+    font-size: var(--fs-large);
+}
+
+.login-wrapper input:focus{
+    border: none;
+    outline: none;
+}
+
+.login-title-wrapper{
+    font-size: var(--fs-extra-large);
+    font-weight: var(--fw-800);
+    margin-bottom: 2rem;
+}
+
+.login-wrapper form .login-submit{
+    width: 50%;
+    padding: 1rem 0;
+    border-radius: 2rem;
+    font-size: var(--fs-large);
+    font-weight: var(--fw-800);
+    background-color: var(--clr-blue);
+    border: none;
+    color: var(--clr-text);
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+}
+
+.login-wrapper form .login-submit:hover{
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.login-wrapper span{
+    color: var(--clr-blue);
+}
+
+.login-wrapper .create-account{
+    font-size: var(--fs-med);
+    margin-top: 0.5rem;
+    transition: all 0.2s ease;
+
+}
+
+.login-wrapper .create-account:hover{
+    cursor: pointer;
+    opacity: 0.75;
+}
