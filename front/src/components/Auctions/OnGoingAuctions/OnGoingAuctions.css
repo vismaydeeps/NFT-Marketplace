@@ -3,7 +3,6 @@
     grid-template-columns: repeat(4, 1fr); /* 2 columns */
     gap: 16px; /* Spacing between items */
     color: var(--clr-text);
-    padding: 2rem 4rem;
 }
 
 .ongoing-wrapper .ongoing-auctions{

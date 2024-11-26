@@ -5,6 +5,7 @@ import LeaderBoard from './components/LeaderBoard/LeaderBoard'
 import Login from './components/Login/Login';
 import CreateAccount from './components/CreateAccount/CreateAccount';
 import Auctions from './components/Auctions/Auctions';
+import ViewBids from './components/Auctions/ViewBids/ViewBids';
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       <Navbar />
       <div className="content">
         {/* <LeaderBoard /> */}
-        <Auctions />
+        {/* <Auctions /> */}
+        <ViewBids />
       </div>
       {/* <Login /> */}
       {/* <CreateAccount /> */}

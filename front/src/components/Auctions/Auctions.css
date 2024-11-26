@@ -1,0 +1,20 @@
+.auctions-wrapper{
+    padding: 2rem 4rem;
+}
+
+.auctions-wrapper .auctions-title{
+    font-weight: var(--fw-800);
+    color: var(--clr-text);
+    font-size: var(--fs-extra-large);
+    margin-left: 4.2rem;
+    margin-bottom: 2rem;
+}
+
+.auctions-wrapper .auctions-title .auctions-live{
+    background-color: var(--clr-red);
+    padding: 0.25rem 1rem;
+    border-radius: 0.75rem;
+    font-size: var(--fs-extra-large);
+    font-weight: var(--fw-600);
+    margin-left: 0.5rem;
+}

@@ -11,7 +11,7 @@ const OnGoingAuctions = () => {
         <>
             <div className="ongoing-wrapper">
                 {
-                    auctionData.map((data, index) => ( // Use map instead of forEach
+                    auctionData.map((data, index) => ( 
                         <div className="ongoing-auctions" key={index}>
                             <img src={tempNFT} alt="NFT Image" />
                             <div className="ongoing-data">
