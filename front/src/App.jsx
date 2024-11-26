@@ -4,16 +4,18 @@ import Navbar from './components/Navbar/Navbar'
 import LeaderBoard from './components/LeaderBoard/LeaderBoard'
 import Login from './components/Login/Login';
 import CreateAccount from './components/CreateAccount/CreateAccount';
+import Auctions from './components/Auctions/Auctions';
 
 const App = () => {
   return (
     <>
-      {/* <Navbar />
+      <Navbar />
       <div className="content">
-      <LeaderBoard />
-      </div> */}
+        {/* <LeaderBoard /> */}
+        <Auctions />
+      </div>
       {/* <Login /> */}
-      <CreateAccount />
+      {/* <CreateAccount /> */}
     </>
   )
 }

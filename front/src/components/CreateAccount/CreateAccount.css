@@ -79,3 +79,8 @@
     cursor: pointer;
     opacity: 0.75;
 }
+
+.create-acc-title{
+    text-align: center;
+    font-size: var(--fs-extra-large);
+}

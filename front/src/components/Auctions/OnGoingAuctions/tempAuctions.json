@@ -1,0 +1,348 @@
+{
+    "auctions": [
+        {
+            "auctionId": "auc12345",
+            "nftId": "nft98765",
+            "sellerId": "user123",
+            "initialPrice": 1.5,
+            "currentHighestBid": {
+                "amount": 3.8,
+                "bidderId": "user567",
+                "timestamp": "2024-11-18T12:30:00Z"
+            },
+            "bids": [
+                {
+                    "bidId": "bid001",
+                    "amount": 1.8,
+                    "bidderId": "user234",
+                    "timestamp": "2024-11-18T10:00:00Z"
+                },
+                {
+                    "bidId": "bid002",
+                    "amount": 2.5,
+                    "bidderId": "user345",
+                    "timestamp": "2024-11-18T10:30:00Z"
+                },
+                {
+                    "bidId": "bid003",
+                    "amount": 3.2,
+                    "bidderId": "user456",
+                    "timestamp": "2024-11-18T11:00:00Z"
+                },
+                {
+                    "bidId": "bid004",
+                    "amount": 3.8,
+                    "bidderId": "user567",
+                    "timestamp": "2024-11-18T12:30:00Z"
+                }
+            ],
+            "bidCount": 4,
+            "auctionEndTime": "2024-11-20T15:00:00Z",
+            "status": "active",
+            "reservePrice": 2.0,
+            "auctionStartTime": "2024-11-18T09:00:00Z",
+            "winner": null
+        },
+        {
+            "auctionId": "auc12345",
+            "nftId": "nft98765",
+            "sellerId": "user123",
+            "initialPrice": 1.5,
+            "currentHighestBid": {
+                "amount": 3.8,
+                "bidderId": "user567",
+                "timestamp": "2024-11-18T12:30:00Z"
+            },
+            "bids": [
+                {
+                    "bidId": "bid001",
+                    "amount": 1.8,
+                    "bidderId": "user234",
+                    "timestamp": "2024-11-18T10:00:00Z"
+                },
+                {
+                    "bidId": "bid002",
+                    "amount": 2.5,
+                    "bidderId": "user345",
+                    "timestamp": "2024-11-18T10:30:00Z"
+                },
+                {
+                    "bidId": "bid003",
+                    "amount": 3.2,
+                    "bidderId": "user456",
+                    "timestamp": "2024-11-18T11:00:00Z"
+                },
+                {
+                    "bidId": "bid004",
+                    "amount": 3.8,
+                    "bidderId": "user567",
+                    "timestamp": "2024-11-18T12:30:00Z"
+                }
+            ],
+            "bidCount": 4,
+            "auctionEndTime": "2024-11-20T15:00:00Z",
+            "status": "active",
+            "reservePrice": 2.0,
+            "auctionStartTime": "2024-11-18T09:00:00Z",
+            "winner": null
+        },
+        {
+            "auctionId": "auc12345",
+            "nftId": "nft98765",
+            "sellerId": "user123",
+            "initialPrice": 1.5,
+            "currentHighestBid": {
+                "amount": 3.8,
+                "bidderId": "user567",
+                "timestamp": "2024-11-18T12:30:00Z"
+            },
+            "bids": [
+                {
+                    "bidId": "bid001",
+                    "amount": 1.8,
+                    "bidderId": "user234",
+                    "timestamp": "2024-11-18T10:00:00Z"
+                },
+                {
+                    "bidId": "bid002",
+                    "amount": 2.5,
+                    "bidderId": "user345",
+                    "timestamp": "2024-11-18T10:30:00Z"
+                },
+                {
+                    "bidId": "bid003",
+                    "amount": 3.2,
+                    "bidderId": "user456",
+                    "timestamp": "2024-11-18T11:00:00Z"
+                },
+                {
+                    "bidId": "bid004",
+                    "amount": 3.8,
+                    "bidderId": "user567",
+                    "timestamp": "2024-11-18T12:30:00Z"
+                }
+            ],
+            "bidCount": 4,
+            "auctionEndTime": "2024-11-20T15:00:00Z",
+            "status": "active",
+            "reservePrice": 2.0,
+            "auctionStartTime": "2024-11-18T09:00:00Z",
+            "winner": null
+        },
+        {
+            "auctionId": "auc12345",
+            "nftId": "nft98765",
+            "sellerId": "user123",
+            "initialPrice": 1.5,
+            "currentHighestBid": {
+                "amount": 3.8,
+                "bidderId": "user567",
+                "timestamp": "2024-11-18T12:30:00Z"
+            },
+            "bids": [
+                {
+                    "bidId": "bid001",
+                    "amount": 1.8,
+                    "bidderId": "user234",
+                    "timestamp": "2024-11-18T10:00:00Z"
+                },
+                {
+                    "bidId": "bid002",
+                    "amount": 2.5,
+                    "bidderId": "user345",
+                    "timestamp": "2024-11-18T10:30:00Z"
+                },
+                {
+                    "bidId": "bid003",
+                    "amount": 3.2,
+                    "bidderId": "user456",
+                    "timestamp": "2024-11-18T11:00:00Z"
+                },
+                {
+                    "bidId": "bid004",
+                    "amount": 3.8,
+                    "bidderId": "user567",
+                    "timestamp": "2024-11-18T12:30:00Z"
+                }
+            ],
+            "bidCount": 4,
+            "auctionEndTime": "2024-11-20T15:00:00Z",
+            "status": "active",
+            "reservePrice": 2.0,
+            "auctionStartTime": "2024-11-18T09:00:00Z",
+            "winner": null
+        },
+        {
+            "auctionId": "auc12345",
+            "nftId": "nft98765",
+            "sellerId": "user123",
+            "initialPrice": 1.5,
+            "currentHighestBid": {
+                "amount": 3.8,
+                "bidderId": "user567",
+                "timestamp": "2024-11-18T12:30:00Z"
+            },
+            "bids": [
+                {
+                    "bidId": "bid001",
+                    "amount": 1.8,
+                    "bidderId": "user234",
+                    "timestamp": "2024-11-18T10:00:00Z"
+                },
+                {
+                    "bidId": "bid002",
+                    "amount": 2.5,
+                    "bidderId": "user345",
+                    "timestamp": "2024-11-18T10:30:00Z"
+                },
+                {
+                    "bidId": "bid003",
+                    "amount": 3.2,
+                    "bidderId": "user456",
+                    "timestamp": "2024-11-18T11:00:00Z"
+                },
+                {
+                    "bidId": "bid004",
+                    "amount": 3.8,
+                    "bidderId": "user567",
+                    "timestamp": "2024-11-18T12:30:00Z"
+                }
+            ],
+            "bidCount": 4,
+            "auctionEndTime": "2024-11-20T15:00:00Z",
+            "status": "active",
+            "reservePrice": 2.0,
+            "auctionStartTime": "2024-11-18T09:00:00Z",
+            "winner": null
+        },
+        {
+            "auctionId": "auc12345",
+            "nftId": "nft98765",
+            "sellerId": "user123",
+            "initialPrice": 1.5,
+            "currentHighestBid": {
+                "amount": 3.8,
+                "bidderId": "user567",
+                "timestamp": "2024-11-18T12:30:00Z"
+            },
+            "bids": [
+                {
+                    "bidId": "bid001",
+                    "amount": 1.8,
+                    "bidderId": "user234",
+                    "timestamp": "2024-11-18T10:00:00Z"
+                },
+                {
+                    "bidId": "bid002",
+                    "amount": 2.5,
+                    "bidderId": "user345",
+                    "timestamp": "2024-11-18T10:30:00Z"
+                },
+                {
+                    "bidId": "bid003",
+                    "amount": 3.2,
+                    "bidderId": "user456",
+                    "timestamp": "2024-11-18T11:00:00Z"
+                },
+                {
+                    "bidId": "bid004",
+                    "amount": 3.8,
+                    "bidderId": "user567",
+                    "timestamp": "2024-11-18T12:30:00Z"
+                }
+            ],
+            "bidCount": 4,
+            "auctionEndTime": "2024-11-20T15:00:00Z",
+            "status": "active",
+            "reservePrice": 2.0,
+            "auctionStartTime": "2024-11-18T09:00:00Z",
+            "winner": null
+        },
+        {
+            "auctionId": "auc12345",
+            "nftId": "nft98765",
+            "sellerId": "user123",
+            "initialPrice": 1.5,
+            "currentHighestBid": {
+                "amount": 3.8,
+                "bidderId": "user567",
+                "timestamp": "2024-11-18T12:30:00Z"
+            },
+            "bids": [
+                {
+                    "bidId": "bid001",
+                    "amount": 1.8,
+                    "bidderId": "user234",
+                    "timestamp": "2024-11-18T10:00:00Z"
+                },
+                {
+                    "bidId": "bid002",
+                    "amount": 2.5,
+                    "bidderId": "user345",
+                    "timestamp": "2024-11-18T10:30:00Z"
+                },
+                {
+                    "bidId": "bid003",
+                    "amount": 3.2,
+                    "bidderId": "user456",
+                    "timestamp": "2024-11-18T11:00:00Z"
+                },
+                {
+                    "bidId": "bid004",
+                    "amount": 3.8,
+                    "bidderId": "user567",
+                    "timestamp": "2024-11-18T12:30:00Z"
+                }
+            ],
+            "bidCount": 4,
+            "auctionEndTime": "2024-11-20T15:00:00Z",
+            "status": "active",
+            "reservePrice": 2.0,
+            "auctionStartTime": "2024-11-18T09:00:00Z",
+            "winner": null
+        },
+        {
+            "auctionId": "auc12345",
+            "nftId": "nft98765",
+            "sellerId": "user123",
+            "initialPrice": 1.5,
+            "currentHighestBid": {
+                "amount": 3.8,
+                "bidderId": "user567",
+                "timestamp": "2024-11-18T12:30:00Z"
+            },
+            "bids": [
+                {
+                    "bidId": "bid001",
+                    "amount": 1.8,
+                    "bidderId": "user234",
+                    "timestamp": "2024-11-18T10:00:00Z"
+                },
+                {
+                    "bidId": "bid002",
+                    "amount": 2.5,
+                    "bidderId": "user345",
+                    "timestamp": "2024-11-18T10:30:00Z"
+                },
+                {
+                    "bidId": "bid003",
+                    "amount": 3.2,
+                    "bidderId": "user456",
+                    "timestamp": "2024-11-18T11:00:00Z"
+                },
+                {
+                    "bidId": "bid004",
+                    "amount": 3.8,
+                    "bidderId": "user567",
+                    "timestamp": "2024-11-18T12:30:00Z"
+                }
+            ],
+            "bidCount": 4,
+            "auctionEndTime": "2024-11-20T15:00:00Z",
+            "status": "active",
+            "reservePrice": 2.0,
+            "auctionStartTime": "2024-11-18T09:00:00Z",
+            "winner": null
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+.ongoing-wrapper{
+    display: grid; /* Use Grid layout */
+    grid-template-columns: repeat(4, 1fr); /* 2 columns */
+    gap: 16px; /* Spacing between items */
+    color: var(--clr-text);
+    padding: 2rem 4rem;
+}
+
+.ongoing-wrapper .ongoing-auctions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1rem;
+    /* border: 5px solid var(--clr-neutral-dark); */
+    background-color: var(--clr-neutral-dark);
+    margin: 2rem 4rem;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.ongoing-wrapper .ongoing-auctions img{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 1rem;
+}
+
+.ongoing-wrapper .ongoing-auctions .nft-title{
+    font-size: var(--fs-extra-large);
+}
+
+.ongoing-wrapper .ongoing-options{
+    display: flex;
+    gap: 1rem;
+}
+
+.ongoing-wrapper .ongoing-options button{
+    padding: 1rem 1.45rem;
+    color: white;
+    border: none;
+    font-size: var(--fs-med);
+    border-radius: 0.75rem;
+    font-weight: var(--fw-800);
+    transition: opacity 0.2s ease;
+}
+
+.ongoing-wrapper .ongoing-options button:nth-child(1){
+    background-color: var(--clr-green);
+}
+
+
+.ongoing-wrapper .ongoing-options button:nth-child(2){
+    background-color: var(--clr-blue);
+}
+
+.ongoing-wrapper .ongoing-options button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.ongoing-wrapper .ongoing-auctions .ongoing-data{
+    display: flex;
+    flex-direction: column;
+    /* align-items: start; */
+    place-self: start;
+    /* margin-left: 1rem; */
+    gap: 0.75rem;
+    /* color: var(--clr-neutral-hove); */
+}
+
+.ongoing-wrapper .ongoing-auctions .ongoing-data .nft-title{
+    color: var(--clr-blue);
+    font-weight: var(--fw-800);
+}
+
+.ongoing-wrapper .ongoing-auctions .ongoing-data .nft-seller{
+    font-size: var(--fs-small);
+}

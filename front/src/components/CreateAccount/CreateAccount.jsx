@@ -6,12 +6,9 @@ const CreateAccount = () => {
         <>
             <div className="create-account-wrapper">
                 <form action="">
-                    <div className="login-title-wrapper">
-                        <p className="login-title">Create a <span>Closed Sea</span> Account!</p>
+                    <div className="create-title-wrapper">
+                        <p className="create-acc-title">Create a <span>Closed Sea</span> Account!</p>
                     </div>
-                    {/* <div className="firstname-wrapper">
-                        <input placeholder='First Name' type="text" name='create-firstname' />
-                    </div> */}
                     <div className="lastname-wrapper">
                         <input placeholder='User Name' type="text" name='create-lastname' />
                     </div>
