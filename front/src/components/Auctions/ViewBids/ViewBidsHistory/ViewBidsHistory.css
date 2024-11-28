@@ -1,0 +1,48 @@
+.bids-history-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.bids-history-wrapper table {
+    width: 100%;
+    text-align: center;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0 2rem;
+    font-size: var(--fs-large);
+}
+
+.bids-history-wrapper table td,
+.bids-history-wrapper table thead th {
+    padding: 2rem 1.5rem;
+    background-color: var(--clr-neutral-dark);
+}
+
+.bids-history-wrapper table .start {
+    border-radius: 0.75rem 0rem 0rem 0.75rem;
+}
+
+.bids-history-wrapper table .end {
+    border-radius: 0rem 0.75rem 0.75rem 0rem;
+}
+
+.bids-history-wrapper table thead th .start {
+    border-radius: 0.75rem 0rem 0rem 0.75rem;
+}
+
+.bids-history-wrapper table thead th .end {
+    border-radius: 0rem 0.75rem 0.75rem 0rem;
+}
+
+.bids-history-wrapper table .mid,
+.bids-history-wrapper table .end {
+    border-left: 1px solid var(--clr-neutral-hover);
+}
+
+.bids-history-wrapper table thead th{
+    font-weight: var(--fw-800);
+}
