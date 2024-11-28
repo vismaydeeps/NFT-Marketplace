@@ -71,6 +71,13 @@ justify-content: center;
     border: none;
     color: var(--clr-text);
     font-weight: var(--fw-800);
+    /* transition: opacity 0.5s ease; */
+}
+
+.view-bids-wrapper .view-bids-mid form button:hover{
+    /* transform: scale(1.025); */
+    opacity: 0.9;
+    cursor: pointer;
 }
 
 .view-bids-wrapper .view-top .bids-highest p{
@@ -80,4 +87,17 @@ justify-content: center;
     background-color: var(--clr-red);
     border-radius: 0.75rem;
     font-weight: var(--fw-800);
+}
+
+.view-bids-wrapper .view-bids-bottom{
+  display: flex;  
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.view-bids-wrapper .view-bids-bottom p{
+    font-size: var(--fs-extra-large);
+    margin-left: 1rem;
 }

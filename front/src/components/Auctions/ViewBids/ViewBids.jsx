@@ -33,6 +33,7 @@ const ViewBids = () => {
           </form>
         </div>
         <div className="view-bids-bottom">
+          <p>Placed Bids ({25})</p>
           <ViewBidsHistory />
         </div>
       </div >

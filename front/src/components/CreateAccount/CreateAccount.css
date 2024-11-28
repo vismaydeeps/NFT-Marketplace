@@ -73,6 +73,7 @@
     font-size: var(--fs-med);
     margin-top: 0.5rem;
     transition: all 0.2s ease;
+    color: var(--clr-green);
 }
 
 .create-account-wrapper .login-account:hover {
@@ -83,4 +84,8 @@
 .create-acc-title{
     text-align: center;
     font-size: var(--fs-extra-large);
+}
+
+.create-account-wrapper form span{
+    color: var(--clr-blue);
 }

@@ -18,6 +18,7 @@ const ViewBidsHistory = (props) => {
               <th className='end'>Time of Bid</th>
             </tr>
           </thead>
+          {/* <hr /> */}
           <tbody>
             {
               bids.map((bid, index) => (

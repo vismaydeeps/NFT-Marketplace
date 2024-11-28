@@ -6,7 +6,6 @@
     justify-content: center;
 }
 
-
 .bids-history-wrapper table {
     width: 100%;
     text-align: center;
@@ -22,21 +21,21 @@
     background-color: var(--clr-neutral-dark);
 }
 
-.bids-history-wrapper table .start {
+.bids-history-wrapper table tbody .start {
     border-radius: 0.75rem 0rem 0rem 0.75rem;
 }
 
-.bids-history-wrapper table .end {
+.bids-history-wrapper table tbody .end {
     border-radius: 0rem 0.75rem 0.75rem 0rem;
 }
 
-.bids-history-wrapper table thead th .start {
+/* .bids-history-wrapper table thead th .start {
     border-radius: 0.75rem 0rem 0rem 0.75rem;
 }
 
 .bids-history-wrapper table thead th .end {
     border-radius: 0rem 0.75rem 0.75rem 0rem;
-}
+} */
 
 .bids-history-wrapper table .mid,
 .bids-history-wrapper table .end {
@@ -45,4 +44,14 @@
 
 .bids-history-wrapper table thead th{
     font-weight: var(--fw-800);
+    background-color: var(--clr-background);
+    border-bottom: 2px solid var(--clr-neutral-hover);
+    border-radius: 0;
 }
+
+/* .bids-history-wrapper table hr{
+    width: 96vw;
+    border: none;
+    height: 2px;
+    background-color: var(--clr-neutral-dark);
+} */
