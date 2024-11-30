@@ -6,6 +6,8 @@ import Login from './components/Login/Login';
 import CreateAccount from './components/CreateAccount/CreateAccount';
 import Auctions from './components/Auctions/Auctions';
 import ViewBids from './components/Auctions/ViewBids/ViewBids';
+import Sale from './components/SalePage/Sale';
+import User from './components/User/User';
 
 const App = () => {
   return (
@@ -13,8 +15,9 @@ const App = () => {
       <Navbar />
       <div className="content">
         {/* <LeaderBoard /> */}
-        <Auctions />
-        
+        {/* <Auctions /> */}
+        {/* <Sale /> */}
+        <User/>
       </div>
       {/* <Login /> */}
       {/* <CreateAccount /> */}

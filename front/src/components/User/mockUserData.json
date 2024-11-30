@@ -1,0 +1,122 @@
+{
+    "userId": "12345",
+    "username": "cryptoArtLover",
+    "email": "cryptoartlover@example.com",
+    "profilePicture": "https://example.com/images/cryptoArtLover.png",
+    "bio": "NFT enthusiast and digital art collector.",
+    "account_creation" : "15-10-2024",
+    "wallet": {
+      "address": "0xABC123DEF456GHI789",
+      "balance": {
+        "ETH": 2.5,
+        "MATIC": 500.0
+      },
+      "linked": true
+    },
+    "ownedNFTs": [
+      {
+        "nftId": "nft001",
+        "name": "Sunset Vibes",
+        "collection": "Nature Series",
+        "tokenId": "1001",
+        "image": "https://example.com/nfts/sunset-vibes.png",
+        "attributes": {
+          "rarity": "Rare",
+          "edition": "1/50"
+        },
+        "currentPrice": {
+          "amount": 0.5,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": {
+          "amount": 0.3,
+          "currency": "ETH"
+        },
+        "dateAcquired": "2024-11-01"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      }
+    ],
+    "activity": {
+      "createdNFTs": [
+        {
+          "nftId": "nft010",
+          "name": "Ocean Breeze",
+          "collection": "Nature Series",
+          "createdDate": "2024-10-10",
+          "status": "For Sale",
+          "price": {
+            "amount": 0.8,
+            "currency": "ETH"
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "type": "Purchase",
+          "nftId": "nft001",
+          "price": {
+            "amount": 0.3,
+            "currency": "ETH"
+          },
+          "date": "2024-11-01"
+        },
+        {
+          "type": "Sale",
+          "nftId": "nft003",
+          "price": {
+            "amount": 0.7,
+            "currency": "ETH"
+          },
+          "date": "2024-09-15"
+        }
+      ]
+    },
+    "wishlist": [
+      {
+        "nftId": "nft005",
+        "name": "Golden Hour",
+        "collection": "Nature Series",
+        "image": "https://example.com/nfts/golden-hour.png",
+        "currentPrice": {
+          "amount": 0.4,
+          "currency": "ETH"
+        }
+      }
+    ],
+    "settings": {
+      "notifications": {
+        "email": true,
+        "sms": false,
+        "push": true
+      },
+      "currencyPreference": "ETH",
+      "privacy": {
+        "showActivity": true,
+        "showOwnedNFTs": true
+      }
+    },
+    "reputation": {
+      "rating": 4.8,
+      "reviews": 12,
+      "badges": ["Top Collector", "Early Supporter"]
+    },
+    "lastLogin": "2024-11-27T14:30:00Z",
+    "joinDate": "2024-08-15"
+  }
+  

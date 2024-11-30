@@ -1,0 +1,9 @@
+.user-wrapper{
+    color: var(--clr-text);
+}
+
+.user-wrapper .profile-data img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 10rem;
+}
