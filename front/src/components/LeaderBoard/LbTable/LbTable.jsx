@@ -48,6 +48,7 @@ const LbTable = (props) => {
                             </div>
                             <p>{nft.price}</p>
                             <p>{nft.priceBoughtFor}</p>
+                        
                         </div>
                     ))}
                 </div>

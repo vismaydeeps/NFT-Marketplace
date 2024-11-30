@@ -1,0 +1,103 @@
+.user-nfts-wrapper {
+    display: flex;
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+
+.user-nfts-wrapper .owner-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-nfts-wrapper .creator-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-nfts-wrapper .owned-nfts-wrapper .own-nft img,
+.user-nfts-wrapper .created-nfts-wrapper .created-nft img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 0.75rem;
+}
+
+.user-nfts-wrapper .owned-nfts-wrapper,
+.user-nfts-wrapper .created-nfts-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns of equal width */
+    gap: 2rem;
+    /* Adjust the gap between grid items */
+    width: 100%;
+    /* Make it span the full container width */
+    border: 1px solid var(--clr-neutral-hover);
+    padding: 4rem;
+    border-radius: 0.75rem;
+}
+
+.user-nfts-wrapper .owned-nfts-wrapper .own-nft,
+.user-nfts-wrapper .created-nfts-wrapper .created-nft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+    border-radius: 0.75rem;
+    background-color: var(--clr-neutral-dark);
+}
+
+
+.user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-content,
+.user-nfts-wrapper .created-nfts-wrapper .created-nft .nft-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content:center;
+gap: 1rem;
+}
+
+.user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-name,
+.user-nfts-wrapper .created-nfts-wrapper .created-nft .nft-name {
+    font-size: 1.25rem;
+    font-weight: var(--fw-800);
+}
+
+
+.user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-metrics,
+.user-nfts-wrapper .created-nfts-wrapper .created-nft .nft-metrics {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-value,
+.user-nfts-wrapper .created-nfts-wrapper .created-nft .nft-value {
+    padding: 0.75rem;
+    background-color: var(--clr-green);
+    border-radius: 0.75rem;
+}
+
+
+.user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-likes,
+.user-nfts-wrapper .created-nfts-wrapper .created-nft .nft-likes {
+    padding: 0.75rem;
+    background-color: var(--clr-neutral-dark);
+    border: none;
+    color: var(--clr-text);
+    font-weight: var(--fw-800);
+    border: 1px solid var(--clr-text);
+    border-radius: 0.75rem;
+    width: 1.25rem;
+    text-align: center;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    /* align-items: center; */
+}

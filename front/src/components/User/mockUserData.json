@@ -3,7 +3,7 @@
     "username": "cryptoArtLover",
     "email": "cryptoartlover@example.com",
     "profilePicture": "https://example.com/images/cryptoArtLover.png",
-    "bio": "NFT enthusiast and digital art collector.",
+    "bio": "NFT enthusiast and digital art collector. lorem asasdas asd asd as das dsa d sg yhre stgyer as eas awsfd asf we rtfew rqaf awadf",
     "account_creation" : "15-10-2024",
     "wallet": {
       "address": "0xABC123DEF456GHI789",
@@ -16,6 +16,7 @@
     "ownedNFTs": [
       {
         "nftId": "nft001",
+        "likes" : 12,
         "name": "Sunset Vibes",
         "collection": "Nature Series",
         "tokenId": "1001",
@@ -39,6 +40,205 @@
         "name": "Abstract Galaxy",
         "collection": "Cosmic Art",
         "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
+        "image": "https://example.com/nfts/abstract-galaxy.png",
+        "attributes": {
+          "rarity": "Legendary",
+          "edition": "1/1"
+        },
+        "currentPrice": {
+          "amount": 1.0,
+          "currency": "ETH"
+        },
+        "lastSoldPrice": null,
+        "dateAcquired": "2024-11-15"
+      },
+      {
+        "nftId": "nft002",
+        "name": "Abstract Galaxy",
+        "collection": "Cosmic Art",
+        "tokenId": "2002",
+        "likes" : "1",
         "image": "https://example.com/nfts/abstract-galaxy.png",
         "attributes": {
           "rarity": "Legendary",
@@ -60,6 +260,73 @@
           "collection": "Nature Series",
           "createdDate": "2024-10-10",
           "status": "For Sale",
+          "likes" : "12",
+          "price": {
+            "amount": 0.8,
+            "currency": "ETH"
+          }
+        },{
+          "nftId": "nft010",
+          "name": "Ocean Breeze",
+          "collection": "Nature Series",
+          "createdDate": "2024-10-10",
+          "status": "For Sale",
+          "likes" : "12",
+          "price": {
+            "amount": 0.8,
+            "currency": "ETH"
+          }
+        },{
+          "nftId": "nft010",
+          "name": "Ocean Breeze",
+          "collection": "Nature Series",
+          "createdDate": "2024-10-10",
+          "status": "For Sale",
+          "likes" : "12",
+          "price": {
+            "amount": 0.8,
+            "currency": "ETH"
+          }
+        },{
+          "nftId": "nft010",
+          "name": "Ocean Breeze",
+          "collection": "Nature Series",
+          "createdDate": "2024-10-10",
+          "status": "For Sale",
+          "likes" : "12",
+          "price": {
+            "amount": 0.8,
+            "currency": "ETH"
+          }
+        },{
+          "nftId": "nft010",
+          "name": "Ocean Breeze",
+          "collection": "Nature Series",
+          "createdDate": "2024-10-10",
+          "status": "For Sale",
+          "likes" : "12",
+          "price": {
+            "amount": 0.8,
+            "currency": "ETH"
+          }
+        },{
+          "nftId": "nft010",
+          "name": "Ocean Breeze",
+          "collection": "Nature Series",
+          "createdDate": "2024-10-10",
+          "status": "For Sale",
+          "likes" : "12",
+          "price": {
+            "amount": 0.8,
+            "currency": "ETH"
+          }
+        },{
+          "nftId": "nft010",
+          "name": "Ocean Breeze",
+          "collection": "Nature Series",
+          "createdDate": "2024-10-10",
+          "status": "For Sale",
+          "likes" : "12",
           "price": {
             "amount": 0.8,
             "currency": "ETH"
