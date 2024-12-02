@@ -1,0 +1,70 @@
+.create-nft-wrapper {
+    color: var(--clr-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 89vh;
+}
+
+.create-nft-wrapper form {
+    border: 2px solid var(--clr-neutral-hover);
+    border-radius: 0.75rem;
+    padding: 5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.create-nft-wrapper form * {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.create-nft-wrapper form input {
+    padding: 0.5rem 0.5rem;
+    width: 20rem;
+    font-size: var(--fs-large);
+    outline: none;
+    border-radius: 0.75rem;
+    background-color: var(--clr-background);
+    border: 2px solid var(--clr-neutral-hover);
+    color: var(--clr-text);
+}
+
+.create-nft-wrapper form label {
+    font-size: var(--fs-small);
+    margin-left: 0.45rem;
+}
+
+.create-nft-wrapper form .create-nft-title {
+    text-align: center;
+    font-size: var(--fs-extra-large);
+    margin-bottom: 2rem;
+}
+
+.create-nft-wrapper form .nft-upload input {
+    border: none;
+
+}
+
+.create-nft-wrapper form .nft-upload input:hover{
+    cursor: pointer;
+}
+
+.create-nft-wrapper form button {
+    border: none;
+    border-radius: 0.75rem;
+    background-color: var(--clr-green);
+    width: 50%;
+    align-self: center;
+    padding: 1rem 1.5rem;
+    font-size: var(--fs-large);
+    color: var(--clr-text);
+    transition: opacity 0.25s ease;
+}
+
+.create-nft-wrapper form button:hover{
+    opacity: 0.75;
+    cursor: pointer;
+}

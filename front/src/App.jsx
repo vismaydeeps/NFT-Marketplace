@@ -17,9 +17,9 @@ const App = () => {
       <div className="content">
         {/* <LeaderBoard /> */}
         {/* <Auctions /> */}
-        {/* <Sale /> */}
+        <Sale />
         {/* <User/> */}
-        <CreateNFT />
+        {/* <CreateNFT /> */}
       </div>
       {/* <Login /> */}
       {/* <CreateAccount /> */}
