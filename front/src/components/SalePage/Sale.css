@@ -1,0 +1,128 @@
+.sale-wrapper {
+    color: var(--clr-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.sale-wrapper .nfts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 3rem;
+}
+
+.sale-wrapper .nfts .sale-nfts {
+    background-color: var(--clr-neutral-dark);
+    border-radius: 1rem;
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.sale-wrapper .nfts .sale-nfts img {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 1rem;
+}
+
+.sale-wrapper .nfts .sale-nfts .nft-name {
+    font-size: var(--fs-extra-large);
+    text-align: center;
+}
+
+.sale-wrapper .nfts .sale-nfts .prices {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.sale-wrapper .nfts .sale-nfts .prices .nft-original-wrapper,
+.sale-wrapper .nfts .sale-nfts .prices .nft-asking-wrapper {
+    padding: 1rem 1rem;
+    /* border: 1px solid red; */
+    border-radius: 1rem;
+}
+
+.sale-wrapper .nfts .sale-nfts .prices .nft-original-wrapper .original-label,
+.sale-wrapper .nfts .sale-nfts .prices .nft-asking-wrapper .asking-label {
+    font-size: var(--fs-small);
+    color: var(--clr-text);
+    font-weight: var(--fw-800);
+}
+
+.sale-wrapper .nfts .sale-nfts .prices .nft-original-wrapper {
+    border: 1px solid var(--clr-green);
+    color: var(--clr-green);
+}
+
+.sale-wrapper .nfts .sale-nfts .prices .nft-asking-wrapper {
+    border: 1px solid var(--clr-orange);
+    color: var(--clr-orange);
+}
+
+.sale-wrapper .nfts .sale-nfts .prices .nft-original-wrapper .nft-original,
+.sale-wrapper .nfts .sale-nfts .prices .nft-asking {
+    font-size: 1.5rem;
+}
+
+.sale-wrapper .nfts .nft-description {
+    text-align: center;
+}
+
+.sale-wrapper .sale-nfts .nft-bottom-buttons{
+    display: flex;
+    gap: 0.75rem;
+}
+
+.sale-wrapper .nfts .sale-nfts .nft-buy {
+    padding: 0.75rem 2.5rem;
+    border-radius: 0.75rem;
+    border: none;
+    background-color: var(--clr-green);
+    font-size: 1.25rem;
+    color: var(--clr-text);
+    transition: opacity 0.25s ease;
+}
+
+.sale-wrapper .nfts .sale-nfts .nft-buy:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.sale-wrapper .nfts .sale-nfts .nft-like{
+    color: var(--clr-text);
+    background-color: var(--clr-neutral-dark);
+    border: 2px solid var(--clr-red);
+    padding: 1rem ;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    font-size: 1.25rem;
+    transition: scale 0.2s ease;
+}
+
+.sale-wrapper .nfts .sale-nfts .nft-like:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.sale-wrapper .sale-title {
+    align-self: flex-start;
+    margin-left: 5rem;
+}
+
+.sale-wrapper .sale-title .title-text {
+    font-size: var(--fs-extra-extra-large);
+}
+
+.sale-wrapper .sale-nfts .nft-titles .seller-name {
+    text-align: center;
+    color: var(--clr-orange);
+}
+

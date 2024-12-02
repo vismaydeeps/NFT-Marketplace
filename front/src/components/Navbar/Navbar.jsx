@@ -2,6 +2,7 @@ import React from 'react';
 import "./Navbar.css";
 import tempLogo from "../../assets/tempLogo.png";
 import Account from "../../assets/account.png";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -10,20 +11,23 @@ const Navbar = () => {
         <>
             <div className="navbar-wrapper">
                 <div className="navbar-left">
-                    <div className="navbar-logo">
-                        <img src={tempLogo} alt="" />
-                        <p>ClosedSea</p>
-                    </div>
+                    {/* <div className="navbar-logo"> */}
+                        <Link to="/" className='navbar-logo'>
+                            <img src={tempLogo} alt="" />
+                            <p>ClosedSea</p>
+                        </Link>
+                    {/* </div> */}
                     <ul>
-                        <li>Auctions</li>
-                        <li>For Sale</li>
-                        <li>Your NFTs</li>
-                        <li>Create</li>
+                        <li><Link to="/auctions">Auctions</Link></li>
+                        <li><Link to="/for-sale">For Sale</Link></li>
+                        <li><Link to="/your-nfts">Your NFTs</Link></li>
+                        <li><Link to="/create">Create</Link></li>
+
                     </ul>
                 </div>
                 <div className="navbar-right">
                     <ul>
-                        <li className='navbar-login'>Login</li>
+                        <li className="navbar-login"><Link to="/login">Login</Link></li>
                         <li className='navbar-account'>
                             <img src={Account} alt="" />
                         </li>

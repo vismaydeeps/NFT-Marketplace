@@ -1,0 +1,52 @@
+[
+    {
+        "nftName": "Galactic Voyage",
+        "imagePreview": "https://example.com/images/galactic-voyage.jpg",
+        "originalPrice": "0.5 ETH",
+        "askingPrice": "0.8 ETH",
+        "offerDate": "2024-11-25",
+        "sellerUsername": "CryptoVoyager",
+        "likes": "13",
+        "description": "A mesmerizing journey through the galaxy in digital art form."
+    },
+    {
+        "nftName": "Pixel Panda",
+        "imagePreview": "https://example.com/images/pixel-panda.jpg",
+        "originalPrice": "0.3 ETH",
+        "askingPrice": "0.45 ETH",
+        "offerDate": "2024-11-20",
+        "sellerUsername": "PandaCollector",
+        "likes": "13",
+        "description": "A vibrant pixelated panda that's full of personality."
+    },
+    {
+        "nftName": "Cyber Samurai",
+        "imagePreview": "https://example.com/images/cyber-samurai.jpg",
+        "originalPrice": "1.0 ETH",
+        "askingPrice": "1.5 ETH",
+        "offerDate": "2024-11-22",
+        "likes": "13",
+        "sellerUsername": "BladeRunner87",
+        "description": "A futuristic warrior NFT that embodies the essence of cyberpunk."
+    },
+    {
+        "nftName": "Ocean Bliss",
+        "imagePreview": "https://example.com/images/ocean-bliss.jpg",
+        "originalPrice": "0.7 ETH",
+        "likes": "13",
+        "askingPrice": "0.9 ETH",
+        "offerDate": "2024-11-27",
+        "sellerUsername": "AquaArtistry",
+        "description": "Dive into the calming waves with this serene ocean-themed NFT."
+    },
+    {
+        "nftName": "Ethereal Aurora",
+        "imagePreview": "https://example.com/images/ethereal-aurora.jpg",
+        "likes": "13",
+        "originalPrice": "1.2 ETH",
+        "askingPrice": "1.8 ETH",
+        "offerDate": "2024-11-26",
+        "sellerUsername": "AuroraChaser",
+        "description": "A stunning depiction of the Northern Lights in digital form."
+    }
+]

@@ -22,7 +22,7 @@
 }
 
 .create-nft-wrapper form input {
-    padding: 0.5rem 0.5rem;
+    padding: 1rem 0.75rem;
     width: 20rem;
     font-size: var(--fs-large);
     outline: none;

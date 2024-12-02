@@ -9,21 +9,26 @@ import ViewBids from './components/Auctions/ViewBids/ViewBids';
 import Sale from './components/SalePage/Sale';
 import CreateNFT from './components/CreateNFT/CreateNFT';
 import User from './components/User/User';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   return (
-    <>
+    // <>
+    <Router>
       <Navbar />
       <div className="content">
-        {/* <LeaderBoard /> */}
-        {/* <Auctions /> */}
-        <Sale />
-        {/* <User/> */}
-        {/* <CreateNFT /> */}
+        <Routes>
+          <Route path="/" element={<LeaderBoard />} />
+          <Route path="/auctions" element={<Auctions />} />
+          <Route path="/for-sale" element={<Sale />} />
+          <Route path="/your-nfts" element={<User />} />
+          <Route path="/create" element={<CreateNFT />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/create-account" element={<CreateAccount />} />
+        </Routes>
       </div>
-      {/* <Login /> */}
-      {/* <CreateAccount /> */}
-    </>
+    </Router>
+      
   )
 }
 

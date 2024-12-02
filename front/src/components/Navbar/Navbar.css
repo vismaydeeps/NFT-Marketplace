@@ -25,11 +25,21 @@
 .navbar-wrapper .navbar-left ul {
     gap: 1.5rem;
     font-weight: var(--fw-800);
+    outline: none;
 }
 
 .navbar-wrapper .navbar-left ul li:hover {
     cursor: pointer;
     color: rgb(189, 182, 182);
+}
+
+.navbar-wrapper ul li a {
+    text-decoration: none;
+    /* Removes underline */
+    color: inherit;
+    /* Inherits text color from parent */
+    font-size: 16px;
+    /* Adjust size as needed */
 }
 
 .navbar-wrapper .navbar-left .navbar-logo {
@@ -41,6 +51,11 @@
     font-size: var(--fs-extra-large);
     border-right: 1px solid var(--clr-neutral-dark);
     padding-right: 2rem;
+}
+
+.navbar-wrapper .navbar-left .navbar-logo {
+    text-decoration: none;
+    color: inherit;
 }
 
 .navbar-wrapper .navbar-left .navbar-logo img {

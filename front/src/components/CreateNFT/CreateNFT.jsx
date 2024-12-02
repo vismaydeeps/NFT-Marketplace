@@ -19,6 +19,10 @@ const CreateNFT = () => {
                         <label htmlFor="price">Price</label>
                         <input type="text" name='price' placeholder='Your desired pricing'/>
                     </div>
+                    <div className="nft-description">
+                        <label htmlFor="description">Description</label>
+                        <input type="text" name="description" placeholder='A brief description of 20 words' id="" />
+                    </div>
                     <div className="nft-gratuity">
                         <label htmlFor="gratuity">Gratuity to the platform</label>
                         <input type="text" name='gratuity' placeholder='Enter as a percentage (min 20%)'/>
