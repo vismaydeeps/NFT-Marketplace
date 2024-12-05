@@ -9,11 +9,14 @@ const ViewBids = () => {
     <>
       <div className="view-bids-wrapper">
         <div className="view-top">
-          <img src={tempNFT} alt="" />
+          {/* <img src={tempNFT} alt="" />
           <div className="bids-data">
-            <div className="view-bids-title">
-              <p className="view-bids-name">title</p>
-              <p className="view-bids-user">user</p>
+            <div className="bids-desc-data">
+              <div className="view-bids-title">
+                <p className="view-bids-name">title</p>
+                <p className="view-bids-user">user</p>
+              </div>
+              <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, amet. Minima aliquam itaque possimus cum numquam voluptatem reprehenderit quisquam natus.</p>
             </div>
             <div className="bids-data-bottom">
               <div className="bids-data-timer">
@@ -24,6 +27,32 @@ const ViewBids = () => {
           <div className="bids-highest">
             <p>Largest Bid Placed : <span>123 ETH</span>
             </p>
+          </div> */}
+          <img src={tempNFT} alt="" />
+          <div className="nft-name-data">
+            <div className="nft-name-left">
+              <p className="nft-name"><span>Title lorem</span> created by potato</p>
+              <p className="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus quod accusamus fugit culpa laboriosam? Vero exercitationem tempora sapiente a reprehenderit!</p>
+            </div>
+            <div className="nft-name-right">
+              {/* <div className="right-1"> */}
+              <div className="seller">
+                <span>Sold By</span>
+                <p>Lorem, ipsum.</p>
+              </div>
+              <div className="highest-bid">
+                <span>Highest Bid</span>
+                <p>2 ETH</p>
+              </div>
+              <div className="bid-time">
+                <span>Time Left</span>
+                <p>12:00:00</p>
+              </div>
+              <div className="nft-likes">
+                <p><span>❤️</span>15</p>
+              </div>
+              {/* </div> */}
+            </div>
           </div>
         </div>
         <div className="view-bids-mid">

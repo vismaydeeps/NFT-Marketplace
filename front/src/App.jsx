@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import "./App.css";
 import Navbar from './components/Navbar/Navbar'
 import LeaderBoard from './components/LeaderBoard/LeaderBoard'
@@ -9,16 +9,27 @@ import ViewBids from './components/Auctions/ViewBids/ViewBids';
 import Sale from './components/SalePage/Sale';
 import CreateNFT from './components/CreateNFT/CreateNFT';
 import User from './components/User/User';
+import NFTPage from './components/NFTPage/NFTPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { NFTMarketPlaceProvider } from '../Context/NFTMarketPlaceContext';
+
+import { NFTMarketPlaceContext } from '../Context/NFTMarketPlaceContext';
+
 
 const App = () => {
+
+  const { checkIfWalletConnected } = useContext(NFTMarketPlaceContext);
+
+  useEffect(() => {
+    checkIfWalletConnected();
+  })
+
   return (
-    // <>
     <Router>
       <Navbar />
       <div className="content">
         <Routes>
-          <Route path="/" element={<LeaderBoard />} />
+          <Route path="/" element={<NFTPage />} />
           <Route path="/auctions" element={<Auctions />} />
           <Route path="/for-sale" element={<Sale />} />
           <Route path="/your-nfts" element={<User />} />
@@ -28,7 +39,8 @@ const App = () => {
         </Routes>
       </div>
     </Router>
-      
+    // </NFTMarketPlaceProvider>
+
   )
 }
 

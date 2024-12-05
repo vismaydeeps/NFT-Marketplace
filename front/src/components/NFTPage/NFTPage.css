@@ -1,4 +1,4 @@
-.view-bids-wrapper {
+.NFT-page-wrapper {
     display: flex;
     flex-direction: column;
     color: var(--clr-text);
@@ -7,26 +7,26 @@
 }
 
 
-.view-bids-wrapper .view-top{
+.NFT-page-wrapper .view-top{
     display: flex;
     align-items: center;
     /* gap: 2rem; */
 }
 
-.view-bids-wrapper .view-top img{
+.NFT-page-wrapper .view-top img{
     width: 15rem;
     height: 15rem;
     border-radius: 0.75rem;
 }
 
 
-.view-bids-wrapper .nft-name-data .nft-name-left .nft-name span{
+.NFT-page-wrapper .nft-name-data .nft-name-left .nft-name span{
     font-size: 3.5rem;
     color: var(--clr-text);
     margin-right: 0.5rem;
 }
 
-.view-bids-wrapper .nft-name-data .nft-name-left{
+.NFT-page-wrapper .nft-name-data .nft-name-left{
     display: flex;
     flex-direction: column;
     /* align-items: flex-start; */
@@ -34,12 +34,12 @@
     width: 40%;
 }
 
-.view-bids-wrapper .nft-name-data .nft-name-left .nft-name{
+.NFT-page-wrapper .nft-name-data .nft-name-left .nft-name{
     color: var(--clr-orange);
 }
 
 
-.view-bids-wrapper .nft-name-data{
+.NFT-page-wrapper .nft-name-data{
     display: flex;
     justify-content:space-between;
     /* justify-content: ; */
@@ -48,13 +48,13 @@
     padding: 2rem;
 }
 
-.view-bids-wrapper .view-top .nft-name-right{
+.NFT-page-wrapper .view-top .nft-name-right{
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-.view-bids-wrapper .view-top .nft-name-right div{
+.NFT-page-wrapper .view-top .nft-name-right div{
     border: 2px solid var(--clr-green);
     padding: 1.25rem;
     border-radius: 0.75rem;
@@ -63,43 +63,43 @@
     align-items: center;
 }
 
-.view-bids-wrapper .view-top .nft-name-right div p{
+.NFT-page-wrapper .view-top .nft-name-right div p{
     font-size: 1.75rem;
     text-align: center;
 }
 
-.view-bids-wrapper .view-top .nft-name-right div span{
+.NFT-page-wrapper .view-top .nft-name-right div span{
     
     font-size: var(--fs-small);
 }
 
-.view-bids-wrapper .view-top .nft-name-right .nft-likes{
+.NFT-page-wrapper .view-top .nft-name-right .nft-likes{
     border: 2px solid var(--clr-red);
 }
-.view-bids-wrapper .view-top .nft-name-right .nft-likes span{
+.NFT-page-wrapper .view-top .nft-name-right .nft-likes span{
     font-size: var(--fs-extra-large);
 }
 
-.view-bids-wrapper .view-top .nft-name-right .nft-likes p{
+.NFT-page-wrapper .view-top .nft-name-right .nft-likes p{
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
 }
 
-.view-bids-wrapper .view-bids-mid{
+.NFT-page-wrapper .view-bids-mid{
 display: flex;
 align-items: center;
 justify-content: center;
 }
 
-.view-bids-wrapper .view-bids-mid form {
+.NFT-page-wrapper .view-bids-mid form {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.view-bids-wrapper .view-bids-mid form input {
+.NFT-page-wrapper .view-bids-mid form input {
     font-size: var(--fs-large);
     border: none;
     outline: none;
@@ -110,7 +110,7 @@ justify-content: center;
     padding: 1.25rem 1.75rem;
 }
 
-.view-bids-wrapper .view-bids-mid form button {
+.NFT-page-wrapper .view-bids-mid form button {
     font-size: var(--fs-large);
     padding: 1.25rem 1.5rem;
     border-radius: 0.5rem;
@@ -121,14 +121,14 @@ justify-content: center;
     /* transition: opacity 0.5s ease; */
 }
 
-.view-bids-wrapper .view-bids-mid form button:hover{
+.NFT-page-wrapper .view-bids-mid form button:hover{
     /* transform: scale(1.025); */
     opacity: 0.9;
     cursor: pointer;
 }
 
 
-.view-bids-wrapper .view-bids-bottom{
+.NFT-page-wrapper .view-bids-bottom{
   display: flex;  
   flex-direction: column;
   align-items: flex-start;
@@ -136,7 +136,7 @@ justify-content: center;
   gap: 1rem;
 }
 
-.view-bids-wrapper .view-bids-bottom p{
+.NFT-page-wrapper .view-bids-bottom p{
     font-size: var(--fs-extra-large);
     margin-left: 1rem;
 }
