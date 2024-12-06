@@ -13,7 +13,6 @@
     "@openzeppelin/contracts": "^4.9.3",
     "axios": "^1.7.9",
     "ether": "^0.0.9",
-    "ethers": "^5.7.2",
     "hardhat": "^2.22.17",
     "ipfs-http-client": "^60.0.1",
     "react": "^18.3.1",
@@ -32,6 +31,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
+    "ethers": "^6.0.0",
     "globals": "^15.11.0",
     "vite": "^5.4.10"
   }

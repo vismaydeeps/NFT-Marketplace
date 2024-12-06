@@ -90,11 +90,11 @@ const UserNFTs = (props) => {
                                     <p className="nft-date">{nft.dateAcquired}</p>
                                     <div className="nft-metrics">
                                         <p className="nft-value">{nft.currentPrice.amount} ETH</p>
-                                        <div className='nft-likes'>
+                                        {/* <div className='nft-likes'>
                                             <p>
-                                                {/* <Heart isActive={active} onClick={() => setActive(!active)} animationScale={1.25} inactiveColor="white" /> */}
-                                                <span>❤️</span>{nft.likes}</p>
-                                        </div>
+                                                <Heart isActive={active} onClick={() => setActive(!active)} animationScale={1.25} inactiveColor="white" /> 
+                                                 <span>❤️</span>{nft.likes}</p>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
@@ -116,11 +116,11 @@ const UserNFTs = (props) => {
                                     <p className="nft-date">123</p>
                                     <div className="nft-metrics">
                                         <p className="nft-value">{nft.price} ETH</p>
-                                        <div className='nft-likes'>
-                                            {/* <Heart isActive={active} onClick={() => setActive(!active)} animationScale={1.25} inactiveColor="white" /> */}
+                                        {/* <div className='nft-likes'>
+                                            <Heart isActive={active} onClick={() => setActive(!active)} animationScale={1.25} inactiveColor="white" />
 
                                             <p><span>❤️</span> 123</p>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

@@ -9,79 +9,83 @@ import { create as ipfsHttpClient } from "ipfs-http-client";
 
 import { NFTMarketPlaceAddress, NFTMarketPlaceABI } from './constants';
 
+// const fetchContract = (signerOrProvider) =>
+//     new ethers.Contract(
+//         NFTMarketPlaceAddress,
+//         NFTMarketPlaceABI,
+//         signerOrProvider
+//     )
+
+
+// const connectingWithSmartContract = async () => {
+//     try {
+
+//         // const web3modal = new Web3Modal();
+//         // const connection = await web3modal.connect();
+//         // const provider = new ethers.BrowserProvider(connection);
+//         // const signer = provider.getSigner();
+//         // const contract = fetchContract(signer);
+//         // // console.log("contract",contract);
+//         // console.log("Contract Address:", contract.address);
+//         // console.log()
+
+//         // return contract;
+                
+//         const web3modal = new Web3Modal();
+//         const connection = await web3modal.connect();
+
+//         // Create the provider using Web3Provider for ethers.js v5
+//         const provider = new ethers.providers.Web3Provider(connection); // Use Web3Provider here for ethers.js v5
+//         const signer = provider.getSigner(); // Get signer, no need to await
+
+//         // Fetch the contract using the signer
+//         const contract = fetchContract(signer);
+
+//         // Debugging: Print contract address and ABI to confirm
+//         // console.log("Contract Address:", contract.address);
+//         // console.log("Contract ABI:", contract.interface.format(ethers.utils.FormatTypes.json));
+
+//         return contract;
+        
+
+//     } catch (error) {
+//         console.log("something wrong with contract");
+//         console.log(error);
+//     }
+// }
+
+//v6
 const fetchContract = (signerOrProvider) =>
     new ethers.Contract(
         NFTMarketPlaceAddress,
         NFTMarketPlaceABI,
         signerOrProvider
-    )
-
+    );
 
 const connectingWithSmartContract = async () => {
     try {
-
-        // const web3modal = new Web3Modal();
-        // const connection = await web3modal.connect();
-        // const provider = new ethers.BrowserProvider(connection);
-        // const signer = provider.getSigner();
-        // const contract = fetchContract(signer);
-        // // console.log("contract",contract);
-        // console.log("Contract Address:", contract.address);
-        // console.log()
-
-        // return contract;
-                
+        // Initialize Web3Modal
         const web3modal = new Web3Modal();
         const connection = await web3modal.connect();
 
-        // Create the provider using Web3Provider for ethers.js v5
-        const provider = new ethers.providers.Web3Provider(connection); // Use Web3Provider here for ethers.js v5
-        const signer = provider.getSigner(); // Get signer, no need to await
+        // Create the provider using ethers.js v6 BrowserProvider
+        const provider = new ethers.BrowserProvider(connection);
+        
+        // Get the signer from the provider
+        const signer = await provider.getSigner();
 
         // Fetch the contract using the signer
         const contract = fetchContract(signer);
 
         // Debugging: Print contract address and ABI to confirm
-        // console.log("Contract Address:", contract.address);
-        // console.log("Contract ABI:", contract.interface.format(ethers.utils.FormatTypes.json));
+        console.log("Contract Address:", contract.target); // Use `contract.target` instead of `contract.address`
+        // console.log("Contract ABI:", NFTMarketPlaceABI);
 
         return contract;
-        
-
     } catch (error) {
-        console.log("something wrong with contract");
-        console.log(error);
+        console.error("Error connecting with the smart contract:", error);
     }
-}
-
-
-
-// const connectingWithSmartContract = async () => {
-//     try {
-//         // Initialize Web3Modal and connect
-//         const web3modal = new Wenb3Modal();
-//         const connection = await web3modal.connect();
-
-//         // Initialize the provider with the connected wallet
-//         const provider = new ethers.Web3Provider(connection); // Use Web3Provider here, not BrowserProvider
-//         const signer = provider.getSigner();
-
-//         // Define your contract ABI and address here
-//         const contractAddress = NFTMarketPlaceAddress; // Replace with actual contract address
-        
-
-//         // Create contract instance using ABI and address
-//         const contract = new ethers.Contract(contractAddress, NFTMarketPlaceABI, signer);
-
-//         // Debugging: Print contract address and ABI to confirm
-//         console.log("Contract Address:", contract.address);
-//         console.log("Contract ABI:", contract.interface.format(ethers.utils.FormatTypes.json));
-
-//         return contract;
-//     } catch (error) {
-//         console.log("Something went wrong with contract:", error);
-//     }
-// };
+};
 
 
 export const NFTMarketPlaceContext = React.createContext();
@@ -190,7 +194,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
 
     const createSale = async (url, formInputPrice, isReselling, id) => {
         try {
-            const price = ethers.utils.parseUnits(formInputPrice, "ether");
+            const price = ethers.parseUnits(formInputPrice, "ether");
             // const price = formInputPrice;
             const contract = await connectingWithSmartContract();
 
@@ -211,44 +215,121 @@ export const NFTMarketPlaceProvider = ({ children }) => {
             console.log("error while creating sale", error);
         }
     }
+    // const createSale = async (url, formInputPrice, isReselling, id) => {
+    //     try {
+    //         // Convert the price to BigInt (ethers.js v6 uses BigInt instead of BigNumber)
+    //         // const price = ethers.parseUnits(formInputPrice, "ether");
+    //         const price = formInputPrice;
+    
+    //         // Connect to the smart contract
+    //         const contract = await connectingWithSmartContract();
+    
+    //         // Fetch the listing price (if returned as BigNumber, convert it to BigInt)
+    //         const listingPrice = await contract.getListingPrice();
+    
+    //         // Prepare the transaction based on whether it's a new sale or reselling
+    //         const transaction = !isReselling
+    //             ? await contract.createToken(url, price, {
+    //                   value: listingPrice.toString(), // Ensure listing price is in correct format
+    //               })
+    //             : await contract.resellToken(id, price, {
+    //                   value: listingPrice.toString(),
+    //               });
+    
+    //         // Wait for the transaction to be mined
+    //         const receipt = await transaction.wait();
+    
+    //         // Debugging: Log the transaction receipt
+    //         console.log("Transaction Receipt:", receipt);
+    //     } catch (error) {
+    //         console.log("Error while creating sale:", error);
+    //     }
+    // };
+    
 
+    // const fetchNFTS = async () => {
+    //     try {
+    //         const provider = new ethers.providers.JsonRpcProvider();
+    //         const contract = fetchContract(provider);
+
+    //         const data = await contract.fetchMarketItem();
+
+    //         const items = await Promise.all(
+    //             data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
+    //                 const tokenURI = await contract.tokenURI(tokenId);
+
+    //                 const {
+    //                     data: { image, name, description },
+    //                 } = await axios.get(tokenURI);
+    //                 const price = ethers.utils.formatUnits(
+    //                     unformattedPrice.toString(),
+    //                     "ether"
+    //                 );
+
+    //                 return {
+    //                     price,
+    //                     tokenId: tokenId.toNumber(),
+    //                     seller,
+    //                     owner,
+    //                     image,
+    //                     name,
+    //                     description,
+    //                     tokenURI
+    //                 }
+    //             })
+    //         );
+
+    //         return items;
+    //     } catch (error) {
+    //         console.log("error while fetching nfts",error);
+    //     }
+    // }
     const fetchNFTS = async () => {
         try {
-            const provider = new ethers.providers.JsonRpcProvider();
+            // Create a provider to connect to the blockchain
+            const provider = new ethers.JsonRpcProvider();
+    
+            // Fetch the contract instance
             const contract = fetchContract(provider);
-
+    
+            // Fetch the market items
             const data = await contract.fetchMarketItem();
-
+    
+            // Process the data and fetch details for each NFT
             const items = await Promise.all(
                 data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
+                    // Fetch the token URI for metadata
                     const tokenURI = await contract.tokenURI(tokenId);
-
+    
+                    // Fetch metadata from the token URI (e.g., using IPFS)
                     const {
                         data: { image, name, description },
                     } = await axios.get(tokenURI);
-                    const price = ethers.utils.formatUnits(
-                        unformattedPrice.toString(),
-                        "ether"
-                    );
-
+    
+                    // Format the price using ethers.js v6 BigInt
+                    const price = ethers.formatUnits(unformattedPrice, "ether");
+    
+                    // Return a structured item object
                     return {
                         price,
-                        tokenId: tokenId.toNumber(),
+                        tokenId: Number(tokenId), // Convert BigInt to number
                         seller,
                         owner,
                         image,
                         name,
                         description,
-                        tokenURI
-                    }
+                        tokenURI,
+                    };
                 })
             );
-
+    
+            // Return the processed items
             return items;
         } catch (error) {
-            console.log("error while fetching nfts");
+            console.log("Error while fetching NFTs:", error);
         }
-    }
+    };
+    
 
     const fetchMyNFTsOrListedNFTs = async (type) => {
         try {
