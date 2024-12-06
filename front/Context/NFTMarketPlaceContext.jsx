@@ -142,6 +142,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
         try {
             const formData = new FormData();
             formData.append("file", file);
+            console.log("context form data",formData);
 
             const response = await axios({
                 method: "post",
@@ -165,11 +166,11 @@ export const NFTMarketPlaceProvider = ({ children }) => {
     const CreateNFT = async (formInput, fileUrl, router) => {
 
         const { name, description, price } = formInput;
-
+        console.log("context price",price)
         if (!name || !description || !price || !fileUrl)
             return console.log("Data is missing")
 
-        const data = JSON.stringify({ name, description, image: fileUrl });
+        const data = JSON.stringify({ price,name, description, image: fileUrl });
         console.log("context createNFT",data)
         try {
             const response = await axios({
@@ -293,7 +294,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
             const contract = fetchContract(provider);
     
             // Fetch the market items
-            const data = await contract.fetchMarketItem();
+            const data = await contract.fetchMarketItems();
     
             // Process the data and fetch details for each NFT
             const items = await Promise.all(
@@ -336,7 +337,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
 
             const contract = await connectingWithSmartContract();
 
-            const data = type == "fetchItemsListed" ? await contract.fetchItemsListed() : await contract.fetchMyNFT();
+            const data = type == "fetchItemsListed" ? await contract.fetchItemsListed() : await contract.fetchMyNFTs();
 
             const items = await Promise.all(
                 data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
@@ -344,13 +345,14 @@ export const NFTMarketPlaceProvider = ({ children }) => {
                     const {
                         data: { image, name, description }
                     } = await axios.get(tokenURI);
-                    const price = ethers.utils.formatUnits(
+                    const price = ethers.formatUnits(
                         unformattedPrice.toString(),
                         "ether"
                     )
                     return {
                         price,
-                        tokenId: tokenId.toNumber(),
+                        // tokenId: tokenId.toNumber,
+                        tokenId : tokenId,
                         seller,
                         owner,
                         image,
@@ -364,7 +366,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
             return items;
 
         } catch (error) {
-            console.log("error while fetching listeed nfts")
+            console.log("error while fetching listeed nfts",error)
         }
     }
 
@@ -378,22 +380,22 @@ export const NFTMarketPlaceProvider = ({ children }) => {
         try {
             const contract = await connectingWithSmartContract();
 
-            const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
+            const price = ethers.parseUnits(nft.price.toString(), "ether");
 
             const transaction = await contract.createMarketSale(nft.tokenId, {
                 value: price,
             })
 
             await transaction.wait();
-
+            window.location.reload();
 
         } catch (error) {
-            console.log("error while buying nft")
+            console.log("error while buying nft",error);
         }
     }
 
     return (
-        <NFTMarketPlaceContext.Provider value={{ titleData, checkIfWalletConnected, connectWallet, CreateNFT, uploadToIPFS, fetchNFTS, fetchMyNFTsOrListedNFTs, buyNFT, currentAccount }}>
+        <NFTMarketPlaceContext.Provider value={{ titleData, checkIfWalletConnected, connectWallet, CreateNFT, uploadToIPFS, fetchNFTS, fetchMyNFTsOrListedNFTs, buyNFT,createSale, currentAccount }}>
             {children}
         </NFTMarketPlaceContext.Provider>
     )

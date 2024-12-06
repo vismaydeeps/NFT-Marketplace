@@ -23,7 +23,7 @@ const User = () => {
                                     <p className="">{mockUserData.account_creation}</p>
                                 </div>
                                 <div className="created-nfts">
-                                    <span>Created NFTs</span>
+                                    <span>Listed NFTs</span>
                                     <p className="">{mockUserData.activity.createdNFTs.length}</p>
                                 </div>
                                 <div className="owned-nfts">
@@ -47,7 +47,7 @@ const User = () => {
                 <div className="nfts">
                     <div className="nfts-titles">
                         <p className="owned-title">Owned NFTs</p>
-                        <p className="created-title">Created NFTs</p>
+                        <p className="created-title">Listed NFTs</p>
                     </div>
                     <UserNFTs nftData={{ "ownedNFTs": mockUserData.ownedNFTs, "createdNFTs": mockUserData.activity.createdNFTs }} />
                 </div>

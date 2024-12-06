@@ -10,8 +10,8 @@ import Sale from './components/SalePage/Sale';
 import CreateNFT from './components/CreateNFT/CreateNFT';
 import User from './components/User/User';
 import NFTPage from './components/NFTPage/NFTPage';
+import ResellNFT from './components/ResellNFT/ResellNFT';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { NFTMarketPlaceProvider } from '../Context/NFTMarketPlaceContext';
 
 import { NFTMarketPlaceContext } from '../Context/NFTMarketPlaceContext';
 
@@ -36,6 +36,7 @@ const App = () => {
           <Route path="/create" element={<CreateNFT />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create-account" element={<CreateAccount />} />
+          <Route path="/resell" element={<ResellNFT />} />
         </Routes>
       </div>
     </Router>

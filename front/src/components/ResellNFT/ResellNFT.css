@@ -1,0 +1,8 @@
+.resell-wrapper{
+    color: var(--clr-text);
+}
+
+.resell-wrapper .content img{
+    width: 15rem;
+    height: 15rem;
+}

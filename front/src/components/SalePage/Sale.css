@@ -93,6 +93,15 @@
     cursor: pointer;
 }
 
+.sale-wrapper .nfts .sale-nfts .own-nft{
+    background-color: var(--clr-red);
+    color: var(--clr-text);
+    padding: 0.75rem 2.5rem;
+    border-radius: 0.75rem;
+    border: none;
+    font-size: 1.25rem;
+}
+
 .sale-wrapper .nfts .sale-nfts .nft-like{
     color: var(--clr-text);
     background-color: var(--clr-neutral-dark);
