@@ -31,7 +31,7 @@ import { NFTMarketPlaceAddress, NFTMarketPlaceABI } from './constants';
 //         // console.log()
 
 //         // return contract;
-                
+
 //         const web3modal = new Web3Modal();
 //         const connection = await web3modal.connect();
 
@@ -47,7 +47,7 @@ import { NFTMarketPlaceAddress, NFTMarketPlaceABI } from './constants';
 //         // console.log("Contract ABI:", contract.interface.format(ethers.utils.FormatTypes.json));
 
 //         return contract;
-        
+
 
 //     } catch (error) {
 //         console.log("something wrong with contract");
@@ -71,7 +71,7 @@ const connectingWithSmartContract = async () => {
 
         // Create the provider using ethers.js v6 BrowserProvider
         const provider = new ethers.BrowserProvider(connection);
-        
+
         // Get the signer from the provider
         const signer = await provider.getSigner();
 
@@ -111,7 +111,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
                 console.log("No account found")
             }
 
-            console.log("current account",currentAccount);
+            console.log("current account", currentAccount);
         } catch (error) {
             console.log("something went wrong while connecting to wallet")
         }
@@ -143,7 +143,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
         try {
             const formData = new FormData();
             formData.append("file", file);
-            console.log("context form data",formData);
+            console.log("context form data", formData);
 
             const response = await axios({
                 method: "post",
@@ -167,12 +167,12 @@ export const NFTMarketPlaceProvider = ({ children }) => {
     const CreateNFT = async (formInput, fileUrl, router) => {
 
         const { name, description, price } = formInput;
-        console.log("context price",price)
+        console.log("context price", price)
         if (!name || !description || !price || !fileUrl)
             return console.log("Data is missing")
 
-        const data = JSON.stringify({ price,name, description, image: fileUrl });
-        console.log("context createNFT",data)
+        const data = JSON.stringify({ price, name, description, image: fileUrl });
+        console.log("context createNFT", data)
         try {
             const response = await axios({
                 method: "POST",
@@ -222,13 +222,13 @@ export const NFTMarketPlaceProvider = ({ children }) => {
     //         // Convert the price to BigInt (ethers.js v6 uses BigInt instead of BigNumber)
     //         // const price = ethers.parseUnits(formInputPrice, "ether");
     //         const price = formInputPrice;
-    
+
     //         // Connect to the smart contract
     //         const contract = await connectingWithSmartContract();
-    
+
     //         // Fetch the listing price (if returned as BigNumber, convert it to BigInt)
     //         const listingPrice = await contract.getListingPrice();
-    
+
     //         // Prepare the transaction based on whether it's a new sale or reselling
     //         const transaction = !isReselling
     //             ? await contract.createToken(url, price, {
@@ -237,17 +237,17 @@ export const NFTMarketPlaceProvider = ({ children }) => {
     //             : await contract.resellToken(id, price, {
     //                   value: listingPrice.toString(),
     //               });
-    
+
     //         // Wait for the transaction to be mined
     //         const receipt = await transaction.wait();
-    
+
     //         // Debugging: Log the transaction receipt
     //         console.log("Transaction Receipt:", receipt);
     //     } catch (error) {
     //         console.log("Error while creating sale:", error);
     //     }
     // };
-    
+
 
     // const fetchNFTS = async () => {
     //     try {
@@ -290,27 +290,27 @@ export const NFTMarketPlaceProvider = ({ children }) => {
         try {
             // Create a provider to connect to the blockchain
             const provider = new ethers.JsonRpcProvider();
-    
+
             // Fetch the contract instance
             const contract = fetchContract(provider);
-    
+
             // Fetch the market items
             const data = await contract.fetchMarketItems();
-    
+
             // Process the data and fetch details for each NFT
             const items = await Promise.all(
                 data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
                     // Fetch the token URI for metadata
                     const tokenURI = await contract.tokenURI(tokenId);
-    
+
                     // Fetch metadata from the token URI (e.g., using IPFS)
                     const {
                         data: { image, name, description },
                     } = await axios.get(tokenURI);
-    
+
                     // Format the price using ethers.js v6 BigInt
                     const price = ethers.formatUnits(unformattedPrice, "ether");
-    
+
                     // Return a structured item object
                     return {
                         price,
@@ -324,14 +324,14 @@ export const NFTMarketPlaceProvider = ({ children }) => {
                     };
                 })
             );
-    
+
             // Return the processed items
             return items;
         } catch (error) {
             console.log("Error while fetching NFTs:", error);
         }
     };
-    
+
 
     const fetchMyNFTsOrListedNFTs = async (type) => {
         try {
@@ -353,7 +353,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
                     return {
                         price,
                         // tokenId: tokenId.toNumber,
-                        tokenId : tokenId,
+                        tokenId: tokenId,
                         seller,
                         owner,
                         image,
@@ -367,15 +367,15 @@ export const NFTMarketPlaceProvider = ({ children }) => {
             return items;
 
         } catch (error) {
-            console.log("error while fetching listeed nfts",error)
+            console.log("error while fetching listeed nfts", error)
         }
     }
 
-    useEffect(()=>{
-        fetchNFTS().then((items)=>{
-            console.log("from context",items)
+    useEffect(() => {
+        fetchNFTS().then((items) => {
+            console.log("from context", items)
         })
-    },[])
+    }, [])
 
     const buyNFT = async (nft) => {
         // const navigate = useNavigate();
@@ -393,12 +393,154 @@ export const NFTMarketPlaceProvider = ({ children }) => {
             // window.location.reload();
 
         } catch (error) {
-            console.log("error while buying nft",error);
+            console.log("error while buying nft", error);
         }
     }
 
+    const startAuction = async (tokenId, startingBid, duration) => {
+        try {
+            const contract = await connectingWithSmartContract();
+            const startingBidInWei = ethers.parseUnits(startingBid.toString(), "ether");
+
+            const transaction = await contract.startAuction(tokenId, startingBidInWei, duration);
+            await transaction.wait();
+
+            console.log(`Auction started for token ID: ${tokenId}`);
+        } catch (error) {
+            console.error("Error starting auction:", error);
+        }
+    };
+
+    const placeBid = async (tokenId, bidAmount) => {
+        try {
+            const contract = await connectingWithSmartContract();
+            const bidInWei = ethers.parseUnits(bidAmount.toString(), "ether");
+    
+            const transaction = await contract.placeBid(tokenId, { value: bidInWei });
+            await transaction.wait();
+    
+            console.log(`Bid placed on token ID: ${tokenId}`);
+            // Optionally, you can call fetchActiveAuctions to get the updated auction details
+        } catch (error) {
+            console.error("Error placing bid:", error);
+        }
+    };
+    const claimNFT = async (tokenId) => {
+        try {
+            const contract = await connectingWithSmartContract();
+            
+            // First, ensure the auction has ended and there's a valid highest bidder
+            const auction = await contract.auctions(tokenId);
+            if (auction.highestBidder === "0x0000000000000000000000000000000000000000") {
+                throw new Error("No bids placed");
+            }
+            if (Date.now() / 1000 < auction.auctionEndTime) {
+                throw new Error("Auction has not yet ended");
+            }
+    
+            // Call the endAuction function to transfer the NFT to the highest bidder
+            const transaction = await contract.endAuction(tokenId);
+            
+            // Wait for transaction to be mined
+            const receipt = await transaction.wait();
+            
+            if (receipt.status === 1) {
+                console.log(`NFT claimed for token ID: ${tokenId}`);
+            } else {
+                throw new Error("Transaction failed");
+            }
+        } catch (error) {
+            console.error("Error claiming NFT:", error.message || error);
+        }
+    };
+    
+    
+
+    // const fetchActiveAuctions = async () => {
+    //     try {
+    //         const provider = new ethers.JsonRpcProvider();
+    //         const contract = fetchContract(provider);
+
+    //         const data = await contract.fetchAuctions();
+    //         const auctions = await Promise.all(
+    //             data.map(async ({ tokenId, highestBid, highestBidder, endTime }) => {
+    //                 const tokenURI = await contract.tokenURI(tokenId);
+    //                 const {
+    //                     data: { image, name, description },
+    //                 } = await axios.get(tokenURI);
+
+    //                 return {
+    //                     tokenId: Number(tokenId),
+    //                     highestBid: ethers.formatUnits(highestBid, "ether"),
+    //                     highestBidder,
+    //                     endTime: new Date(endTime * 1000), // Convert timestamp to date
+    //                     image,
+    //                     name,
+    //                     description,
+    //                     tokenURI,
+    //                 };
+    //             })
+    //         );
+
+    //         return auctions;
+    //     } catch (error) {
+    //         console.error("Error fetching active auctions:", error);
+    //     }
+    // };
+
+    const fetchActiveAuctions = async () => {
+        try {
+            const provider = new ethers.JsonRpcProvider();
+            const contract = fetchContract(provider);
+    
+            // Fetch MarketItems and Auctions
+            const [marketItems, activeAuctions] = await contract.fetchAuctions();
+    
+            // Map through both arrays to combine them into a single array of auction objects
+            const auctions = marketItems.map((item, index) => {
+                const auction = activeAuctions[index];
+                const { tokenId, seller, sold } = item;
+                const { highestBid, highestBidder, auctionEndTime } = auction;
+    
+                return {
+                    tokenId: Number(tokenId.toString()), // Convert BigInt to string then to Number
+                    seller,
+                    sold,
+                    highestBid: ethers.formatUnits(highestBid, "ether"), // Convert to ether (BigInt -> string is fine here)
+                    highestBidder,
+                    endTime: new Date(Number(auctionEndTime.toString()) * 1000), // Convert BigInt to number for timestamp
+                    // You can skip fetching IPFS metadata if not needed
+                    image: "", // Placeholder, can be fetched if needed
+                    name: "", // Placeholder, can be fetched if needed
+                    description: "", // Placeholder, can be fetched if needed
+                    tokenURI: "", // Placeholder, can be fetched if needed
+                };
+            });
+    
+            return auctions;
+        } catch (error) {
+            console.error("Error fetching active auctions:", error);
+        }
+    };
+    
+
     return (
-        <NFTMarketPlaceContext.Provider value={{ titleData, checkIfWalletConnected, connectWallet, CreateNFT, uploadToIPFS, fetchNFTS, fetchMyNFTsOrListedNFTs, buyNFT,createSale, currentAccount }}>
+        <NFTMarketPlaceContext.Provider
+            value={{
+                titleData,
+                checkIfWalletConnected,
+                connectWallet,
+                CreateNFT, uploadToIPFS,
+                fetchNFTS,
+                fetchMyNFTsOrListedNFTs,
+                buyNFT,
+                createSale,
+                currentAccount,
+                startAuction,
+                claimNFT,
+                fetchActiveAuctions,
+                placeBid
+            }}>
             {children}
         </NFTMarketPlaceContext.Provider>
     )

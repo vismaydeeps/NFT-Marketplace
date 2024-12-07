@@ -1,11 +1,21 @@
-import React from 'react';
+import React,{useContext,useState,useEffect} from 'react';
 import tempAuctions from "./tempAuctions.json";
 import tempNFT from "../../../assets/tempNFT.png";
 import "./OnGoingAuctions.css";
+import { NFTMarketPlaceContext } from '../../../../Context/NFTMarketPlaceContext';
 
 const OnGoingAuctions = () => {
 
     const auctionData = tempAuctions.auctions;
+    const {fetchActiveAuctions} = useContext(NFTMarketPlaceContext);
+
+    const tempFetch  = async()=>{
+        const temp =  await fetchActiveAuctions();
+        console.log("ongoing auctions",temp);
+    }
+
+    tempFetch();
+
 
     return (
         <>
