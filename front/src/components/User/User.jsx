@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "./User.css";
 import tempPfp from "../../assets/tempNFT.png";
 import mockUserData from "./mockUserData.json";
@@ -6,6 +6,9 @@ import mockUserData from "./mockUserData.json";
 import UserNFTs from './UserNFTs/UserNFTs';
 
 const User = () => {
+
+    const [listedNFTCount, setListedNFTCount] = useState(0);
+    const [ownedNFTCount, setOwnedNFTCount] = useState(0);
     return (
         <>
             <div className="user-wrapper">
@@ -24,14 +27,14 @@ const User = () => {
                                 </div>
                                 <div className="created-nfts">
                                     <span>Listed NFTs</span>
-                                    <p className="">{mockUserData.activity.createdNFTs.length}</p>
+                                    <p className="">{listedNFTCount}</p>
                                 </div>
                                 <div className="owned-nfts">
                                     <span>Owned NFTs</span>
-                                    <p className="">{mockUserData.ownedNFTs.length}</p>
+                                    <p className="">{ownedNFTCount}</p>
                                 </div>
                             </div>
-                            <div className="right-2">
+                            {/* <div className="right-2">
                                 <div className="sold-nfts">
                                     <span>Total Sold</span>
                                     <p className="">5</p>
@@ -40,7 +43,7 @@ const User = () => {
                                     <span>Number of Auctions</span>
                                     <p className="">2</p>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -49,7 +52,10 @@ const User = () => {
                         <p className="owned-title">Owned NFTs</p>
                         <p className="created-title">Listed NFTs</p>
                     </div>
-                    <UserNFTs nftData={{ "ownedNFTs": mockUserData.ownedNFTs, "createdNFTs": mockUserData.activity.createdNFTs }} />
+                    <UserNFTs
+                        setListedNFTCount = { setListedNFTCount }
+                        setOwnedNFTCount={setOwnedNFTCount}
+                     />
                 </div>
             </div>
         </>

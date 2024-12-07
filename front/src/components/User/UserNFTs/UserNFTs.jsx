@@ -6,8 +6,8 @@ import { useState } from 'react';
 import { NFTMarketPlaceContext } from '../../../../Context/NFTMarketPlaceContext';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const UserNFTs = (props) => {
-    const nftData = props.nftData;
+const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount }) => {
+    
     // const createdNFTs = nftData.createdNFTs;
     // const ownedNFTs = nftData.ownedNFTs;
     const [active, setActive] = useState(false)
@@ -69,6 +69,7 @@ const UserNFTs = (props) => {
                 );
                 const filteredNFTs = updatedNFTs.filter((nft) => nft.seller.toLowerCase() == currentAccount.toLowerCase());
                 setCreatedNFTs(filteredNFTs.reverse());
+                setListedNFTCount(filteredNFTs.length); // Update listed NFT count
             } catch (error) {
                 console.error("Error loading NFTs:", error);
             }
@@ -92,6 +93,7 @@ const UserNFTs = (props) => {
                     })
                 )
                 setOwnedNFTs(updatedOwn);
+                setOwnedNFTCount(updatedOwn.length); // Update owned NFT count
                 // setOwnedNFTs(allNFTs)
             } catch (error) {
                 console.log("Trouble fetching owned nfts", error);
