@@ -1,8 +1,79 @@
-.resell-wrapper{
+.resell-wrapper {
+    /* display: flex; */
+    flex-direction: column;
     color: var(--clr-text);
+    padding: 3rem;
 }
 
-.resell-wrapper .content img{
+.resell-wrapper .resell-title p{
+    font-size: var(--fs-extra-extra-large);
+    font-weight: var(--fs-600);
+}
+
+.resell-wrapper .content img {
     width: 15rem;
     height: 15rem;
+    border-radius: 0.75rem;
+}
+
+.resell-wrapper .content {
+    display: flex;
+    gap: 2rem;
+}
+
+.resell-wrapper .content .nft-details{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+
+}
+
+.resell-wrapper .content .name{
+    font-size: 4.5rem;
+    color: var(--clr-blue);
+}
+
+.resell-wrapper .content .price{
+    padding: 1.5rem 1rem;
+    font-size: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--clr-orange);
+    color: var(--clr-orange);
+}
+
+.resell-wrapper .content .desc{
+    font-size: 1.5rem;
+    color: var(--clr-text);
+    margin-left: 0.2rem;
+}
+
+.resell-wrapper .content .ops{
+    margin-top: 3rem;
+ }
+
+.resell-wrapper .content .ops input{
+    padding: 0.75rem 1rem;
+    font-size: var(--fs-large);
+    outline: none;
+    border: 1px solid var(--clr-neutral-hover);
+    background-color: var(--clr-background);
+    color: var(--clr-text);
+    border-radius: 0.55rem;
+}
+
+.resell-wrapper .content .ops button{
+    padding: 0.75rem 2.5rem;
+    margin-left: 0.75rem;
+    border-radius: 0.75rem;
+    background-color: var(--clr-green);
+    border: 2px solid var(--clr-neutral-hover);
+    border: none;
+    color: var(--clr-text);
+    font-weight: var(--fw-800);
+    font-size: var(--fs-large);
+}
+
+.resell-wrapper .content .ops button:hover{
+    opacity: 0.8;
+    cursor: pointer;
 }

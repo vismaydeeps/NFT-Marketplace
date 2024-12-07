@@ -4,6 +4,7 @@ import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 import axios from "axios";
 import { create as ipfsHttpClient } from "ipfs-http-client";
+import { useNavigate } from 'react-router-dom';
 // import Router from "next/router";
 
 
@@ -92,7 +93,7 @@ export const NFTMarketPlaceContext = React.createContext();
 
 export const NFTMarketPlaceProvider = ({ children }) => {
     const titleData = "potato this bro";
-
+    // const navigate = useNavigate();
     const [currentAccount, setCurrentAccount] = useState("");
 
     const checkIfWalletConnected = async () => {
@@ -377,6 +378,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
     },[])
 
     const buyNFT = async (nft) => {
+        // const navigate = useNavigate();
         try {
             const contract = await connectingWithSmartContract();
 
@@ -387,7 +389,8 @@ export const NFTMarketPlaceProvider = ({ children }) => {
             })
 
             await transaction.wait();
-            window.location.reload();
+            // navigate("/your-nfts");
+            // window.location.reload();
 
         } catch (error) {
             console.log("error while buying nft",error);

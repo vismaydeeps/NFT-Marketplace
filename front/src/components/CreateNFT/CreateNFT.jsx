@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react';
 import "./CreateNFT.css";
 import { NFTMarketPlaceContext } from '../../../Context/NFTMarketPlaceContext';
+import { useNavigate } from 'react-router-dom';
 
 const CreateNFT = () => {
     const { uploadToIPFS, CreateNFT } = useContext(NFTMarketPlaceContext);
+
+    const navigate = useNavigate();
 
     const [formInput, setFormInput] = useState({
         name: '',
@@ -58,6 +61,8 @@ const CreateNFT = () => {
         try {
             await CreateNFT(formInput, fileUrl);
             alert("NFT created successfully!");
+            navigate("/your-nfts");
+
         } catch (error) {
             console.error("Error creating NFT:", error);
             alert("NFT creation failed.");

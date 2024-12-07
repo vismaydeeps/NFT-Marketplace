@@ -154,7 +154,7 @@ const UserNFTs = (props) => {
                                 <img src={nft.image} alt="" />
                                 <div className="nft-content">
                                     <p className='nft-name'>{nft.name}</p>
-                                    <p className="nft-date">123</p>
+                                    {/* <p className="nft-date">123</p> */}
                                     <div className="nft-metrics">
                                         <p className="nft-value">
                                             {/* <button onClick={() => buyNFT(nft)}>

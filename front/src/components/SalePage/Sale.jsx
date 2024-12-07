@@ -3,11 +3,12 @@ import "./Sale.css";
 import saleNFT from "./mockSalesNFT.json";
 import tempNFT from "../../assets/tempNFT.png";
 import { NFTMarketPlaceContext } from '../../../Context/NFTMarketPlaceContext';
+import { useNavigate } from 'react-router-dom';
 
 const Sale = () => {
 
   const { fetchNFTS, buyNFT, currentAccount } = useContext(NFTMarketPlaceContext);
-
+  const navigate = useNavigate();
   const [NFTs, setNFTs] = useState([]);
 
   const fetchMetadata = async (tokenURI) => {
@@ -57,6 +58,12 @@ const Sale = () => {
     loadNFTs();
   }, [fetchNFTS]);
 
+  const makePurchase = async (nft) => {
+    await buyNFT(nft);
+    alert("NFT purchased successfully");
+    navigate("/your-nfts")
+  }
+
   return (
     <>
       <div className="sale-wrapper">
@@ -88,16 +95,16 @@ const Sale = () => {
                   {
                     currentAccount == nft.seller.toLowerCase() ? (
                       <button className='own-nft' disabled={true}>Your NFT!</button>
-                    ): (<button className = 'nft-buy' onClick = { ()=> buyNFT(nft) }>Buy</button>)
+                    ) : (<button className='nft-buy' onClick={() => makePurchase(nft)}>Buy</button>)
                   }
 
-                {/* <button className='nft-like'><span>❤️</span>{nft.likes}</button> */}
+                  {/* <button className='nft-like'><span>❤️</span>{nft.likes}</button> */}
+                </div>
               </div>
-              </div>
-        ))
+            ))
           }
-      </div>
-    </div >
+        </div>
+      </div >
     </>
   )
 }

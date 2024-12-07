@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import "./ResellNFT.css";
 import { NFTMarketPlaceContext } from '../../../Context/NFTMarketPlaceContext';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import tempNFT from "../../assets/tempNFT.png";
 
 const ResellNFT = () => {
     const { createSale } = useContext(NFTMarketPlaceContext);
@@ -81,20 +82,59 @@ const ResellNFT = () => {
                 </div>
                 <div className="content">
                     <img src={nft.image} alt={nft.name} />
-                    <div className="nft-details">
-                        <p className="name">{nft.name}</p>
-                        <p className="price">{nft.price}</p>
+                    <div className="right">
+                        <div className="nft-details">
+                            <p className="name">{nft.name}</p>
+                            <p className="price">{nft.price} ETH</p>
+                        </div>
+                        <div className="nft-desc">
+                            <p className="desc">{nft.description}</p>
+                        </div>
+                        <div className="ops">
+                            <input
+                                type="text"
+                                value={resellValue}
+                                onChange={e => setResellValue(e.target.value)}
+                                placeholder="Enter resell price"
+                            />
+                            <button onClick={() => listNFT()}>List NFT!</button>
+
+                        </div>
                     </div>
-                    <input
-                        type="text"
-                        value={resellValue}
-                        onChange={e => setResellValue(e.target.value)}
-                        placeholder="Enter resell price"
-                    />
-                    <button onClick={()=>listNFT()}>List NFT!</button>
+
                 </div>
+
             </div>
         </>
+        // <>
+        //     <div className="resell-wrapper">
+        //         <div className="resell-title">
+        //             <p>List Your NFT</p>
+        //         </div>
+        //         <div className="content">
+        //             <img src={tempNFT} alt={nft.name} />
+        //             <div className="right">
+        //                 <div className="nft-details">
+        //                     <p className="name">potato boy</p>
+        //                     <p className="price">6969 ETH</p>
+        //                 </div>
+        //                 <div className="nft-desc">
+        //                     <p className="desc">fear not potato boi is here</p>
+        //                 </div>
+        //                 <div className="ops">
+        //                     <input
+        //                         type="text"
+        //                         placeholder="Enter resell price"
+        //                     />
+        //                     <button>List NFT!</button>
+
+        //                 </div>
+        //             </div>
+
+        //         </div>
+
+        //     </div>
+        // </>
     );
 };
 
