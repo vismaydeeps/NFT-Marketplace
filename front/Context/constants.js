@@ -10,7 +10,7 @@
 import nftMarketplace from "./NFTMarketPlace.json";
 
 // export const NFTMarketPlaceAddress = "0x0165878A594ca255338adfa4d48449f69242Eb8F";
-export const NFTMarketPlaceAddress = "0x4c5859f0F772848b2D91F1D83E2Fe57935348029";
+export const NFTMarketPlaceAddress = "0x202CCe504e04bEd6fC0521238dDf04Bc9E8E15aB";
 // export const NFTMarketPlaceAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
 
 export const NFTMarketPlaceABI = nftMarketplace.abi;

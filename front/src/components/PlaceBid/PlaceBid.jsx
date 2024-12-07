@@ -3,11 +3,10 @@ import { NFTMarketPlaceContext } from '../../../Context/NFTMarketPlaceContext'; 
 import "./PlaceBid.css";
 
 const PlaceBid = () => {
-    const { fetchActiveAuctions, placeBid, claimNFT, currentAccount } = useContext(NFTMarketPlaceContext); // Access functions from context
+    const { fetchActiveAuctions, placeBid, claimNFT, currentAccount, uploadToIPFS } = useContext(NFTMarketPlaceContext); // Access functions from context
     const [activeAuctions, setActiveAuctions] = useState([]);
     const [bidAmount, setBidAmount] = useState("");
 
-    // Fetch active auctions when the component mounts
     useEffect(() => {
         const loadAuctions = async () => {
             const auctions = await fetchActiveAuctions();
@@ -31,6 +30,11 @@ const PlaceBid = () => {
         setBidAmount("");
     };
 
+    useEffect(() => {
+        console.log(activeAuctions);
+    }, [activeAuctions]);
+
+
     const handleClaimNFT = async (tokenId) => {
         try {
             await claimNFT(tokenId);
@@ -38,11 +42,14 @@ const PlaceBid = () => {
             const updatedAuctions = await fetchActiveAuctions();
             setActiveAuctions(updatedAuctions);
             alert("NFT claimed successfully!");
+
         } catch (error) {
             console.error("Error claiming NFT:", error);
             alert("Failed to claim NFT.");
         }
     };
+
+
 
     return (
         <div className="place-bid-container" style={{ color: "white" }}>
@@ -90,17 +97,17 @@ const PlaceBid = () => {
                                     </div>
                                 ) : isAuctionEnded && !auction.sold ? (
                                     <button onClick={() => handleClaimNFT(auction.tokenId)}>
-                                    End
-                                </button>
-                                ): (<div></div>)
-                    }
+                                        End
+                                    </button>
+                                ) : (<div></div>)
+                                }
                             </div>
-            );
+                        );
                     })
-            ) : (
-            <p>No active auctions at the moment.</p>
+                ) : (
+                    <p>No active auctions at the moment.</p>
                 )}
-        </div>
+            </div>
         </div >
     );
 };

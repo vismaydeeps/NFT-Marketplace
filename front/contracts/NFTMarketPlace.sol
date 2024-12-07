@@ -25,7 +25,6 @@ contract NFTMarketPlace is ERC721URIStorage {
         uint256 price;
         bool sold;
     }
-   
 
     struct Auction {
         uint256 auctionEndTime;
@@ -144,13 +143,13 @@ contract NFTMarketPlace is ERC721URIStorage {
             msg.value == price,
             "Please submit the asking price in order to complete the purchase"
         );
+        payable(owner).transfer(listingPrice);
+        payable(idToMarketItem[tokenId].seller).transfer(msg.value);
         idToMarketItem[tokenId].owner = payable(msg.sender);
         idToMarketItem[tokenId].sold = true;
         idToMarketItem[tokenId].seller = payable(address(0));
         _itemsSold.increment();
         _transfer(address(this), msg.sender, tokenId);
-        payable(owner).transfer(listingPrice);
-        payable(idToMarketItem[tokenId].seller).transfer(msg.value);
     }
 
     /* Returns all unsold market items */
@@ -170,33 +169,6 @@ contract NFTMarketPlace is ERC721URIStorage {
         }
         return items;
     }
-//     function fetchMarketItems() public view returns (MarketItem[] memory) {
-//     uint256 itemCount = _tokenIds.current();
-//     uint256 unsoldItemCount = 0;
-//     uint256 currentIndex = 0;
-
-//     // Count the unsold items
-//     for (uint256 i = 0; i < itemCount; i++) {
-//         if (idToMarketItem[i + 1].owner == address(this) && !idToMarketItem[i + 1].sold) {
-//             unsoldItemCount++;
-//         }
-//     }
-
-//     // Create an array for unsold items
-//     MarketItem[] memory items = new MarketItem[](unsoldItemCount);
-
-//     // Populate the array
-//     for (uint256 i = 0; i < itemCount; i++) {
-//         if (idToMarketItem[i + 1].owner == address(this) && !idToMarketItem[i + 1].sold) {
-//             uint256 currentId = i + 1;
-//             MarketItem storage currentItem = idToMarketItem[currentId];
-//             items[currentIndex] = currentItem;
-//             currentIndex++;
-//         }
-//     }
-//     return items;
-// }
-
 
     /* Returns only items that a user has purchased */
     function fetchMyNFTs() public view returns (MarketItem[] memory) {
@@ -246,7 +218,6 @@ contract NFTMarketPlace is ERC721URIStorage {
         return items;
     }
 
-
     // partially working stuff
 
     function startAuction(
@@ -271,33 +242,38 @@ contract NFTMarketPlace is ERC721URIStorage {
             "There already is a higher bid"
         );
 
-        if (auction.highestBid > 0) {
-            auction.highestBidder.transfer(auction.highestBid); // Refund previous bidder
-        }
+        // if (auction.highestBid > 0) {
+        //     payable(auction.highestBidder).transfer(auction.highestBid); // Refund previous bidder
+        // }
 
         auction.highestBid = msg.value;
         auction.highestBidder = payable(msg.sender);
     }
 
     function endAuction(uint256 tokenId) public {
-        // Ensure the sender is the seller or the auction has been ended already
-        address seller = idToMarketItem[tokenId].seller;
+        // address seller = idToMarketItem[tokenId].seller;
         Auction storage auction = auctions[tokenId];
+        uint256 price = auction.highestBid;
 
-        // Ensure that the auction has been completed (you can also check if a bidder has been set)
         require(!idToMarketItem[tokenId].sold, "Auction has already ended");
 
+        address payable seller = idToMarketItem[tokenId].seller;
+        payable(idToMarketItem[tokenId].seller).transfer(auction.highestBid); // Refund previous bidder
+
         // Mark the auction as ended
-        idToMarketItem[tokenId].owner = payable(msg.sender);
+        // idToMarketItem[tokenId].owner = payable(msg.sender);
+        idToMarketItem[tokenId].owner = payable(auction.highestBidder);
         idToMarketItem[tokenId].sold = true;
         idToMarketItem[tokenId].seller = payable(address(0));
+        idToMarketItem[tokenId].price = price;
         _itemsSold.increment();
 
         // Transfer ownership of the token from the contract to the highest bidder (msg.sender in this case)
+
         _transfer(address(this), auction.highestBidder, tokenId);
-    delete auctions[tokenId];
+        delete auctions[tokenId];
         // Clean up auction-related data (optional, based on your contract design)
- }
+    }
 
     function fetchAuctions()
         public
