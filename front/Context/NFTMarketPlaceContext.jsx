@@ -284,12 +284,12 @@ export const NFTMarketPlaceProvider = ({ children }) => {
         }
     }
 
-    const startAuction = async (tokenId, startingBid, duration,tokenURL) => {
+    const startAuction = async (tokenId, startingBid, duration, tokenURL) => {
         try {
             const contract = await connectingWithSmartContract();
             const startingBidInWei = ethers.parseUnits(startingBid.toString(), "ether");
 
-            const transaction = await contract.startAuction(tokenId, startingBidInWei, duration,tokenURL);
+            const transaction = await contract.startAuction(tokenId, startingBidInWei, duration, tokenURL);
             await transaction.wait();
 
             console.log(`Auction started for token ID: ${tokenId}`);
@@ -302,10 +302,10 @@ export const NFTMarketPlaceProvider = ({ children }) => {
         try {
             const contract = await connectingWithSmartContract();
             const bidInWei = ethers.parseUnits(bidAmount.toString(), "ether");
-    
+
             const transaction = await contract.placeBid(tokenId, { value: bidInWei });
             await transaction.wait();
-    
+
             console.log(`Bid placed on token ID: ${tokenId}`);
             // Optionally, you can call fetchActiveAuctions to get the updated auction details
         } catch (error) {
@@ -315,7 +315,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
     const claimNFT = async (tokenId) => {
         try {
             const contract = await connectingWithSmartContract();
-            
+
             // First, ensure the auction has ended and there's a valid highest bidder
             const auction = await contract.auctions(tokenId);
             if (auction.highestBidder === "0x0000000000000000000000000000000000000000") {
@@ -324,13 +324,13 @@ export const NFTMarketPlaceProvider = ({ children }) => {
             if (Date.now() / 1000 < auction.auctionEndTime) {
                 throw new Error("Auction has not yet ended");
             }
-    
+
             // Call the endAuction function to transfer the NFT to the highest bidder
             const transaction = await contract.endAuction(tokenId);
-            
+
             // Wait for transaction to be mined
             const receipt = await transaction.wait();
-            
+
             if (receipt.status === 1) {
                 console.log(`NFT claimed for token ID: ${tokenId}`);
             } else {
@@ -340,22 +340,22 @@ export const NFTMarketPlaceProvider = ({ children }) => {
             console.error("Error claiming NFT:", error.message || error);
         }
     };
-    
+
 
     const fetchActiveAuctions = async () => {
         try {
             const provider = new ethers.JsonRpcProvider();
             const contract = fetchContract(provider);
-    
+
             // Fetch MarketItems and Auctions
             const [marketItems, activeAuctions] = await contract.fetchAuctions();
-    
+
             // Map through both arrays to combine them into a single array of auction objects
             const auctions = marketItems.map((item, index) => {
                 const auction = activeAuctions[index];
                 const { tokenId, seller, sold } = item;
-                const { highestBid, highestBidder, auctionEndTime, metadataHash} = auction;
-    
+                const { highestBid, highestBidder, auctionEndTime, metadataHash } = auction;
+
                 return {
                     tokenId: Number(tokenId.toString()), // Convert BigInt to string then to Number
                     seller,
@@ -370,15 +370,24 @@ export const NFTMarketPlaceProvider = ({ children }) => {
                     tokenURI: metadataHash, // Placeholder, can be fetched if needed
                 };
             });
-    
+
             return auctions;
         } catch (error) {
             console.error("Error fetching active auctions:", error);
         }
     };
-    
-    const transferNFT = async(recvAddress,tokenId)=>{
-        
+
+    const transferNFT = async (tokenId,recvAddress) => {
+        try {
+            const contract = await connectingWithSmartContract();
+
+            const transaction = await contract.transferNFT(tokenId, recvAddress);
+
+            await transaction.wait();
+
+        } catch (error) {
+            console.log("eror with nft trasnfer", error)
+        }
     }
 
     return (

@@ -56,6 +56,7 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount, setAccountValu
                 const filteredNFTs = updatedNFTs.filter((nft) => nft.seller.toLowerCase() === currentAccount.toLowerCase());
                 setCreatedNFTs(filteredNFTs.reverse());
                 setListedNFTCount(filteredNFTs.length);
+                console.log(filteredNFTs)
             } catch (error) {
                 console.error("Error loading NFTs:", error);
             }
