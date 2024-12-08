@@ -1,0 +1,93 @@
+.trade-nft-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.trade-nft-container .trade-left img{
+    width: 15rem;
+    width: 15rem;
+    border-radius: 0.75rem;
+}
+
+.trade-nft-container .trade-content{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.trade-nft-container .trade-content .trade-right{
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+
+.trade-nft-container .trade-content .trade-right .nft-details{
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.trade-nft-container .trade-content .trade-right .title{
+    text-align: left;
+}
+
+.trade-nft-container .trade-content .trade-right .title{
+    font-size: var(--fs-extra-extra-large);
+}
+
+.trade-nft-container .trade-content .trade-right .desc{
+    font-size: var(--fs-med);
+    color: var(--clr-orange);
+}
+
+.trade-nft-container .trade-content .trade-right .price{
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--clr-orange);
+    border-radius: 0.75rem;
+    font-size: var(--fs-large);
+}
+
+.trade-nft-container .trade-content .trade-right form{
+    border: 1px solid var(--clr-neutral-hover);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 4rem 10rem;
+    border-radius: 0.75rem;
+}
+
+.trade-nft-container .trade-content .trade-right form .trade-inputs{
+    display: flex;
+    gap: 4rem;
+}
+
+.trade-nft-container .trade-content .trade-right form input{
+    padding: 1.25rem 1.75rem;
+    font-size: var(--fs-large);
+    border-radius: 0.75rem;
+    border: 1px solid var(--clr-neutral-hover);
+    background-color: var(--clr-background);
+    outline: none;
+    color: var(--clr-text);
+}
+
+.trade-nft-container .trade-content .trade-right form button{
+    width: 25%;
+    align-self: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    outline: none;
+    background-color: var(--clr-green);
+    color: var(--clr-text);
+    border-radius: 0.75rem;
+    font-size: var(--fs-large);
+    font-weight: var(--fw-800);
+}
+
+.trade-nft-container .trade-content .trade-right form button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}

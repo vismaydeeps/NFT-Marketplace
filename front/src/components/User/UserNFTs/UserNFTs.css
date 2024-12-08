@@ -105,7 +105,7 @@ gap: 1rem;
 }
 
 .user-nfts-wrapper .owned-nfts-wrapper .own-nft .list-nft{
-    padding: 0.75rem;
+    padding: 0.75rem 1.5rem;
     background-color: var(--clr-green);
     border-radius: 0.75rem;
     border: none;
@@ -133,14 +133,14 @@ gap: 1rem;
     cursor: pointer;
 }
 
-/* 
+
 .user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-metrics {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-} */
+}
 
 
 .user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-metrics .owned-buttons{
@@ -148,12 +148,17 @@ gap: 1rem;
     gap: 1rem;
 }
 
-.user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-metrics .owned-buttons .owned-auction{
-    padding: 0.5rem;
+.user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-metrics .owned-buttons .trade{
+    padding:0.5rem 1rem;
     color: var(--clr-text);
     border: none;
-    background-color: var(--clr-green);
+    background-color: var(--clr-orange);
     border-radius: 0.75rem;
     font-size: var(--fs-large);
     font-weight: var(--fw-800);
+}
+
+.user-nfts-wrapper .owned-nfts-wrapper .own-nft .nft-metrics .owned-buttons .trade:hover{
+    opacity: 0.8;
+    cursor: pointer;
 }

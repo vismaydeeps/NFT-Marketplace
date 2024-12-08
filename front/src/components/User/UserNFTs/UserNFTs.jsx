@@ -56,7 +56,7 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount, setAccountValu
                 const filteredNFTs = updatedNFTs.filter((nft) => nft.seller.toLowerCase() === currentAccount.toLowerCase());
                 setCreatedNFTs(filteredNFTs.reverse());
                 setListedNFTCount(filteredNFTs.length);
-                console.log(filteredNFTs)
+
             } catch (error) {
                 console.error("Error loading NFTs:", error);
             }
@@ -126,6 +126,10 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount, setAccountValu
         navigate(`/create-auction?id=${id}&uri=${encodeURIComponent(uri)}`);
     };
 
+    const handleTrade = (tokenId,uri) => {
+        navigate(`/trade?id=${tokenId}&uri=${encodeURIComponent(uri)}`);
+    }
+
     return (
         <>
             <div className="user-nfts-wrapper">
@@ -134,13 +138,15 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount, setAccountValu
                         <div className="own-nft" key={nft.tokenId}>
                             <img src={nft.image} alt="" />
                             <div className="nft-content">
-                                <p className="nft-name">{nft.name}</p>
+                                <p className="nft-name">{nft.name}#{nft.tokenId.toString()}</p>
                                 <p>{nft.description}</p>
                                 <div className="nft-metrics">
                                     <p className="nft-value">{nft.price} ETH</p>
-                                   
+                                    <div className="owned-buttons">
+                                        <button className='trade' onClick={() => handleTrade(nft.tokenId,nft.tokenURI)}>Trade</button>
                                         <button className="list-nft" onClick={() => redirectResell(nft.tokenId, nft.tokenURI)}>List</button>
-                                        
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -152,10 +158,11 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount, setAccountValu
                         <div className="created-nft" key={nft.tokenId}>
                             <img src={nft.image} alt="" />
                             <div className="nft-content">
-                                <p className="nft-name">{nft.name}</p>
+                                <p className="nft-name">{nft.name}#{nft.tokenId}</p>
                                 <p>{nft.description}</p>
                                 <div className="nft-metrics">
                                     <p className="nft-value">{nft.price} ETH</p>
+
                                     <button className="auction-button" onClick={() => redirectToAuction(nft.tokenId, nft.tokenURI)}>Auction</button>
                                 </div>
                             </div>

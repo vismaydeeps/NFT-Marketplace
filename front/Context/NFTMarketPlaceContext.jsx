@@ -377,7 +377,7 @@ export const NFTMarketPlaceProvider = ({ children }) => {
         }
     };
 
-    const transferNFT = async (tokenId,recvAddress) => {
+    const transferNFT = async (tokenId, recvAddress) => {
         try {
             const contract = await connectingWithSmartContract();
 
@@ -390,6 +390,15 @@ export const NFTMarketPlaceProvider = ({ children }) => {
         }
     }
 
+    const tradeNFT = async (address1, token1, address2, token2) => {
+        try {
+
+            const contract = await connectingWithSmartContract();
+            const transaction = await contract.tradeNFT(address1, token1, address2, token2);
+        } catch (e) {
+            console.log("Error with trade NFT", e);
+        }
+    }
     return (
         <NFTMarketPlaceContext.Provider
             value={{
@@ -406,7 +415,8 @@ export const NFTMarketPlaceProvider = ({ children }) => {
                 claimNFT,
                 fetchActiveAuctions,
                 placeBid,
-                transferNFT
+                transferNFT,
+                tradeNFT
             }}>
             {children}
         </NFTMarketPlaceContext.Provider>

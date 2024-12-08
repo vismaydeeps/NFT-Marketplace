@@ -30,7 +30,7 @@ contract NFTMarketPlace is ERC721URIStorage {
         uint256 auctionEndTime;
         uint256 highestBid;
         address payable highestBidder;
-        string metadataHash; 
+        string metadataHash;
     }
 
     mapping(uint256 => Auction) public auctions;
@@ -233,7 +233,7 @@ contract NFTMarketPlace is ERC721URIStorage {
             auctionEndTime: block.timestamp + duration,
             highestBid: startingBid,
             highestBidder: payable(address(0)),
-            metadataHash : url
+            metadataHash: url
         });
     }
 
@@ -314,11 +314,29 @@ contract NFTMarketPlace is ERC721URIStorage {
     }
 
     function transferNFT(uint256 tokenId, address recvAdd) public {
-        
         idToMarketItem[tokenId].owner = payable(recvAdd);
         idToMarketItem[tokenId].sold = true;
         idToMarketItem[tokenId].seller = payable(address(0));
         _itemsSold.increment();
         _transfer(address(this), recvAdd, tokenId);
+    }
+
+    function tradeNFT(
+        address add1,
+        uint256 token1,
+        address add2,
+        uint256 token2
+    ) public {
+        idToMarketItem[token1].owner = payable(add2);
+        idToMarketItem[token1].sold = true;
+        idToMarketItem[token1].seller = payable(address(0));
+        // _itemsSold.increment();
+        _transfer(add1, add2, token1);
+
+        idToMarketItem[token2].owner = payable(add1);
+        idToMarketItem[token2].sold = true;
+        idToMarketItem[token2].seller = payable(address(0));
+        // _itemsSold.increment();
+        _transfer(add2, add1, token2);
     }
 }
