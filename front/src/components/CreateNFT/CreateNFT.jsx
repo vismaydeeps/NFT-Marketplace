@@ -4,7 +4,7 @@ import { NFTMarketPlaceContext } from '../../../Context/NFTMarketPlaceContext';
 import { useNavigate } from 'react-router-dom';
 
 const CreateNFT = () => {
-    const { uploadToIPFS, CreateNFT } = useContext(NFTMarketPlaceContext);
+    const { uploadToIPFS, CreateNFT, createSale } = useContext(NFTMarketPlaceContext);
 
     const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ const CreateNFT = () => {
             const url = await uploadToIPFS(file);
             setFileUrl(url);
             alert("File uploaded to IPFS successfully!");
-            console.log("url thing",url);
+            console.log("url thing", url);
         } catch (error) {
             console.error("Error uploading file to IPFS:", error);
             alert("File upload failed!");
@@ -61,7 +61,7 @@ const CreateNFT = () => {
         try {
             await CreateNFT(formInput, fileUrl);
             alert("NFT created successfully!");
-            navigate("/your-nfts");
+            navigate("/");
 
         } catch (error) {
             console.error("Error creating NFT:", error);
@@ -112,11 +112,11 @@ const CreateNFT = () => {
                         onChange={handleInputChange}
                     />
                 </div>
-               
-                <button type="submit" disabled={loading}>
-                    {loading ? "Creating..." : "Create!"}
-                </button>
-            </form>
+                   
+                    <button type="submit" disabled={loading}>
+                        {loading ? "Creating..." : "Sale!"}
+                    </button>
+                </form>
         </div>
     );
 };

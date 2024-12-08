@@ -4,11 +4,16 @@ import tempPfp from "../../assets/tempNFT.png";
 import mockUserData from "./mockUserData.json";
 // import mockNFTData from "./mockNFTData.json";
 import UserNFTs from './UserNFTs/UserNFTs';
+import { NFTMarketPlaceContext } from '../../../Context/NFTMarketPlaceContext';
 
 const User = () => {
 
     const [listedNFTCount, setListedNFTCount] = useState(0);
     const [ownedNFTCount, setOwnedNFTCount] = useState(0);
+    const [accountValue, setAccountValue] = useState(0);
+
+    const { currentAccount } = useContext(NFTMarketPlaceContext);
+
     return (
         <>
             <div className="user-wrapper">
@@ -16,14 +21,16 @@ const User = () => {
                     <img src={tempPfp} alt="" />
                     <div className="profile-name-data">
                         <div className="profile-name-left">
-                            <p className="user-name">{mockUserData.username}</p>
-                            <p className="bio">{mockUserData.bio}</p>
+                            <p className="user-name">
+                                {currentAccount ? `${currentAccount.slice(0, 6)}...${currentAccount.slice(-4)}` : "N/A"}
+                            </p>
+                            <p className="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo temporibus deleniti odio voluptates architecto aliquid. Harum, magnam necessitatibus. Aliquid animi, odit quisquam quas veniam hic quod alias facere quia eius!</p>
                         </div>
                         <div className="profile-name-right">
                             <div className="right-1">
                                 <div className="creation">
-                                    <span>Account created</span>
-                                    <p className="">{mockUserData.account_creation}</p>
+                                    <span>Account Value</span>
+                                    <p className="">{accountValue}</p>
                                 </div>
                                 <div className="created-nfts">
                                     <span>Listed NFTs</span>
@@ -53,9 +60,10 @@ const User = () => {
                         <p className="created-title">Listed NFTs</p>
                     </div>
                     <UserNFTs
-                        setListedNFTCount = { setListedNFTCount }
+                        setListedNFTCount={setListedNFTCount}
                         setOwnedNFTCount={setOwnedNFTCount}
-                     />
+                        setAccountValue={setAccountValue}
+                    />
                 </div>
             </div>
         </>

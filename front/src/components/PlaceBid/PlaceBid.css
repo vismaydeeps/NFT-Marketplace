@@ -1,0 +1,97 @@
+.place-bid-container {
+    color: var(--clr-text);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.place-bid-container img {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 0.75rem;
+}
+
+.place-bid-container .auction-item {
+    display: flex;
+    gap: 2rem;
+}
+
+.place-bid-container .auction-item .details {
+    display: flex;
+    gap: 5rem;
+}
+
+.place-bid-container .auction-item .details .title-details h3 {
+    font-size: var(--fs-extra-extra-large);
+    margin-bottom: 1rem;
+}
+
+.place-bid-container .auction-item .right {
+    display: flex;
+    flex-direction: column;
+}
+
+.place-bid-container .auction-item .right .right-top {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.place-bid-container .auction-item .right .right-top * {
+    padding: 2rem;
+    border-radius: 0.75rem;
+    /* color: var(--clr-orange); */
+    border: 1px solid var(--clr-orange);
+}
+
+.place-bid-container .auction-item .right .place-bid-input {
+    display: flex;
+    gap: 2rem;
+    align-self: center;
+}
+
+.place-bid-container .auction-item .right .place-bid-input input {
+    align-self: center;
+    padding: 0.5rem;
+    font-size: var(--fs-large);
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid var(--clr-neutral-hover);
+    background-color: var(--clr-background);
+    color: var(--clr-text);
+}
+
+.place-bid-container .auction-item .right .place-bid-input button {
+    padding: 0.5rem 1rem;
+    color: var(--clr-text);
+    border: none;
+    background-color: var(--clr-green);
+    border-radius: 0.5rem;
+    font-size: var(--fs-large);
+}
+
+.place-bid-container .auction-item .right .place-bid-input button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.place-bid-container .auction-item .right .claim,
+.place-bid-container .auction-item .right .end {
+    padding: 0.85rem 1rem;
+    color: var(--clr-text);
+    border: none;
+    background-color: var(--clr-green);
+    border-radius: 0.5rem;
+    font-size: var(--fs-large);
+    width: 25%;
+    align-self: center;
+}
+
+.place-bid-container .auction-item .right .claim:hover,
+.place-bid-container .auction-item .right .end:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

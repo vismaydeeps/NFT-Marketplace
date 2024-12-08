@@ -5,7 +5,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import tempNFT from "../../assets/tempNFT.png";
 
 const ResellNFT = () => {
-    const { createSale } = useContext(NFTMarketPlaceContext);
+    const { createSale, fetchMyNFTsOrListedNFTs } = useContext(NFTMarketPlaceContext);
     const [nft, setNFT] = useState({});
     const [loading, setLoading] = useState(true); // Loading state
     const [searchParams] = useSearchParams(); // Correct usage
@@ -30,7 +30,6 @@ const ResellNFT = () => {
                 name: metadata.name || "Unnamed NFT",
                 description: metadata.description || "No description provided",
                 image: metadata.image || tempNFT,
-                price: metadata.price || "Price unknown"
             };
         } catch (error) {
             console.error("Error fetching metadata:", error);
@@ -43,20 +42,53 @@ const ResellNFT = () => {
         }
     };
 
+    // useEffect(() => {
+    //     const fetchNFT = async () => {
+    //         setLoading(true);
+    //         const nftMetadata = await fetchMetadata(uri);
+    //         const allNFTs = await fetchMyNFTsOrListedNFTs("");
+    //         setNFT(nftMetadata);
+    //         setLoading(false);
+    //     };
+
+    //     if (uri) {
+    //         fetchNFT();
+    //     }
+
+    // }, [uri]); // Dependency array only has 'uri' to fetch the NFT when 'uri' changes
     useEffect(() => {
         const fetchNFT = async () => {
             setLoading(true);
-            const nftMetadata = await fetchMetadata(uri);
-            setNFT(nftMetadata);
-            setLoading(false);
-        };
+            try {
+                // Fetch metadata from URI
+                const nftMetadata = await fetchMetadata(uri);
 
-        if (uri) {
+                // Fetch all NFTs
+                const allNFTs = await fetchMyNFTsOrListedNFTs("");
+                // console.log("all nfts",allNFTs);
+                // console.log("id",id==allNFTs[0].tokenId);
+                // Find the specific NFT by ID
+                const filteredNFT = allNFTs.find((nft) => nft.tokenId == id);
+
+                if (filteredNFT) {
+                    // Merge metadata and NFT data
+                    const mergedNFT = { ...filteredNFT, ...nftMetadata };
+                    setNFT(mergedNFT);
+                } else {
+                    console.warn("NFT with specified ID not found");
+                    setNFT(null);
+                }
+            } catch (error) {
+                console.error("Error fetching NFT:", error);
+                setNFT(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+        if (uri && id) {
             fetchNFT();
         }
-
-    }, [uri]); // Dependency array only has 'uri' to fetch the NFT when 'uri' changes
-
+    }, [uri, id, fetchMyNFTsOrListedNFTs]);
     useEffect(() => {
         console.log(nft);
     }, [nft]);
@@ -68,7 +100,7 @@ const ResellNFT = () => {
     const listNFT = async () => {
         if (resellValue) {
             await createSale(uri, resellValue, true, id);
-            navigate("/your-nfts");
+            navigate("/for-sale");
         } else {
             alert("Please enter a resell price.");
         }

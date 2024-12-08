@@ -7,7 +7,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Sale = () => {
 
-  const { fetchNFTS, buyNFT, currentAccount } = useContext(NFTMarketPlaceContext);
+  const { fetchNFTS, buyNFT, currentAccount,fetchActiveAuctions } = useContext(NFTMarketPlaceContext);
+
+  const [activeAuctions, setActiveAuctions] = useState([]);
+
   const navigate = useNavigate();
   const [NFTs, setNFTs] = useState([]);
 
@@ -35,33 +38,67 @@ const Sale = () => {
     }
   };
 
+  // useEffect(() => {
+  //   const loadNFTs = async () => {
+  //     try {
+  //       const allNFTs = await fetchNFTS();
+        
+  //       const updatedNFTs = await Promise.all(
+  //         allNFTs.map(async (nft) => {
+  //           const metadata = await fetchMetadata(nft.tokenURI);
+  //           return {
+  //             ...nft,
+  //             ...metadata, // Spread the parsed metadata into the NFT object
+  //           };
+  //         })
+  //       );
+  //       const filteredNFTs = updatedNFTs.filter((nft) => nft.price > 1);
+  //       setNFTs(filteredNFTs.reverse());
+  //     } catch (error) {
+  //       console.error("Error loading NFTs:", error);
+  //     }
+  //   };
+
+  //   loadNFTs();
+  // }, [fetchNFTS]);
+
   useEffect(() => {
-    const loadNFTs = async () => {
+    const loadData = async () => {
       try {
-        const allNFTs = await fetchNFTS();
+        // Fetch active auctions and all NFTs
+        const [allNFTs, auctions] = await Promise.all([fetchNFTS(), fetchActiveAuctions()]);
+
+        setActiveAuctions(auctions);
+
+        // Process NFT metadata
         const updatedNFTs = await Promise.all(
           allNFTs.map(async (nft) => {
             const metadata = await fetchMetadata(nft.tokenURI);
             return {
               ...nft,
-              ...metadata, // Spread the parsed metadata into the NFT object
+              ...metadata,
             };
           })
         );
-        const filteredNFTs = updatedNFTs.filter((nft) => nft.price > 1);
+
+        // Filter out NFTs that are in active auctions
+        const auctionedTokenIds = auctions.map((auction) => auction.tokenId);
+        const filteredNFTs = updatedNFTs.filter((nft) => !auctionedTokenIds.includes(nft.tokenId));
+
+        // Sort NFTs and set state
         setNFTs(filteredNFTs.reverse());
       } catch (error) {
-        console.error("Error loading NFTs:", error);
+        console.error("Error loading data:", error);
       }
     };
 
-    loadNFTs();
-  }, [fetchNFTS]);
+    loadData();
+  }, [fetchNFTS, fetchActiveAuctions]);
 
   const makePurchase = async (nft) => {
     await buyNFT(nft);
     alert("NFT purchased successfully");
-    navigate("/your-nfts")
+    navigate("/")
   }
 
   return (

@@ -1,17 +1,56 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NFTMarketPlaceContext } from '../../../Context/NFTMarketPlaceContext'; // Import context
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import "./PlaceBid.css";
 
 const PlaceBid = () => {
     const { fetchActiveAuctions, placeBid, claimNFT, currentAccount, uploadToIPFS } = useContext(NFTMarketPlaceContext); // Access functions from context
     const [activeAuctions, setActiveAuctions] = useState([]);
     const [bidAmount, setBidAmount] = useState("");
+    const [searchParams] = useSearchParams(); // Correct usage
+
+    const id = searchParams.get('id'); // Access the 'id' query parameter
+    const uri = searchParams.get('uri'); // Access the 'uri' query parameter
+
+    const fetchMetadata = async (tokenURI) => {
+        try {
+            const response = await fetch(tokenURI);
+            const rawMetadata = await response.json();
+
+            const metadataKey = Object.keys(rawMetadata)[0];
+            const metadata = JSON.parse(metadataKey);
+
+            return {
+                name: metadata.name || "Unnamed NFT",
+                description: metadata.description || "No description provided",
+                image: metadata.image || tempNFT,
+            };
+        } catch (error) {
+            console.error("Error fetching metadata:", error);
+            return {
+                name: "Unnamed NFT",
+                description: "No description provided",
+                image: tempNFT,
+            };
+        }
+    };
+
 
     useEffect(() => {
         const loadAuctions = async () => {
             const auctions = await fetchActiveAuctions();
-            setActiveAuctions(auctions);
-            console.log("auctions from bid", auctions);
+            const updatedAuctions = await Promise.all(
+                auctions.map(async (auction) => {
+                    const metaData = await fetchMetadata(uri);
+                    return {
+                        ...auction,
+                        ...metaData
+                    }
+                })
+            )
+            const filteredAuctions = updatedAuctions.filter((auction) => auction.tokenId == id);
+            console.log("auctions", filteredAuctions);
+            setActiveAuctions(filteredAuctions);
         };
         loadAuctions();
     }, [fetchActiveAuctions]);
@@ -23,8 +62,19 @@ const PlaceBid = () => {
         }
         await placeBid(tokenId, bidAmount);
         // Optionally, refresh auctions after placing a bid
-        const updatedAuctions = await fetchActiveAuctions();
-        setActiveAuctions(updatedAuctions);
+        const auctions = await fetchActiveAuctions();
+        const updatedAuctions = await Promise.all(
+            auctions.map(async (auction) => {
+                const metaData = await fetchMetadata(uri);
+                return {
+                    ...auction,
+                    ...metaData
+                }
+            })
+        )
+        const filteredAuctions = updatedAuctions.filter((auction) => auction.tokenId == id);
+        console.log("auctions", filteredAuctions);
+        setActiveAuctions(filteredAuctions);
 
         // Reset bid amount after placing the bid
         setBidAmount("");
@@ -53,7 +103,7 @@ const PlaceBid = () => {
 
     return (
         <div className="place-bid-container" style={{ color: "white" }}>
-            <h2>Active Auctions</h2>
+            <h2>Place Bids</h2>
             <div className="auctions-list">
                 {activeAuctions.length > 0 ? (
                     activeAuctions.map((auction) => {
@@ -61,47 +111,59 @@ const PlaceBid = () => {
                         const isAuctionEnded = auctionEndTime <= Date.now();
                         const isHighestBidder = auction.highestBidder.toLowerCase() === currentAccount.toLowerCase(); // Check if the current user is the highest bidder
                         console.log("sum data from bids isauctionended,highestbidder,ishighestdder,auctionendtime", isAuctionEnded, auction.highestBidder, isHighestBidder, auctionEndTime, currentAccount)
+                        console.log("auction");
                         return (
                             <div key={auction.tokenId} className="auction-item">
                                 <img src={auction.image} alt={auction.name} className="auction-image" />
-                                <h3>{auction.name || "Unnamed Item"}</h3>
-                                <p>{auction.description || "No description available"}</p>
-                                <p>Highest Bid: {auction.highestBid} ETH</p>
-                                <p>Ends: {auctionEndTime.toLocaleString()}</p>
-                                <p>Seller: {auction.seller}</p>
+                                <div className="details">
+                                    <div className="title-details">
 
-                                {/* Show bidding form only if the auction has not ended */}
-                                {auctionEndTime > Date.now() && !auction.sold && (
-                                    <div>
-                                        <input
-                                            type="number"
-                                            placeholder="Enter your bid"
-                                            value={bidAmount}
-                                            onChange={(e) => setBidAmount(e.target.value)}
-                                        />
-                                        <button
-                                            onClick={() => handleBid(auction.tokenId)}
-                                            disabled={!bidAmount || parseFloat(bidAmount) <= parseFloat(auction.highestBid)}
-                                        >
-                                            Place Bid
-                                        </button>
+                                        <h3>{auction.name || "Unnamed Item"}</h3>
+                                        <p>{auction.description || "No description available"}</p>
                                     </div>
-                                )}
+                                    <div className="right">
+                                        <div className="right-top">
+                                            <p>Highest Bid: {auction.highestBid} ETH</p>
+                                            <p>Ends: {auctionEndTime.toLocaleString()}</p>
+                                            {/* <p>Seller: {auction.seller}</p> */}
+                                        </div>
 
-                                {/* Allow claiming NFT if the auction has ended and the user is the highest bidder */}
-                                {isAuctionEnded && isHighestBidder && !auction.sold ? (
-                                    <div>
-                                        <button onClick={() => handleClaimNFT(auction.tokenId)}>
-                                            Claim NFT
-                                        </button>
+                                        {/* Show bidding form only if the auction has not ended */}
+                                        {auctionEndTime > Date.now() && !auction.sold && (
+                                            <div className='place-bid-input'>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Enter your bid"
+                                                    value={bidAmount}
+                                                    onChange={(e) => setBidAmount(e.target.value)}
+                                                />
+                                                <button
+                                                    onClick={() => handleBid(auction.tokenId)}
+                                                    disabled={!bidAmount || parseFloat(bidAmount) <= parseFloat(auction.highestBid)}
+                                                >
+                                                    Place Bid
+                                                </button>
+                                            </div>
+                                        )}
+
+                                        {/* Allow claiming NFT if the auction has ended and the user is the highest bidder */}
+                                        {isAuctionEnded && isHighestBidder && !auction.sold ? (
+                                            <div >
+                                                <button className='claim' onClick={() => handleClaimNFT(auction.tokenId)}>
+                                                    Claim NFT
+                                                </button>
+                                            </div>
+                                        ) : isAuctionEnded && !auction.sold ? (
+                                            <button className='end' onClick={() => handleClaimNFT(auction.tokenId)}>
+                                                End
+                                            </button>
+                                        ) : (<div></div>)
+                                        }
                                     </div>
-                                ) : isAuctionEnded && !auction.sold ? (
-                                    <button onClick={() => handleClaimNFT(auction.tokenId)}>
-                                        End
-                                    </button>
-                                ) : (<div></div>)
-                                }
+
+                                </div>
                             </div>
+
                         );
                     })
                 ) : (

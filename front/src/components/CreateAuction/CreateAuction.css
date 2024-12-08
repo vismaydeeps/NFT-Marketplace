@@ -1,0 +1,73 @@
+.create-auction-wrapper{
+    color: var(--clr-text);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.create-auction-wrapper img{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 0.75rem;
+}
+
+.create-auction-wrapper .nft-details{
+    display: flex;
+    gap: 2rem;
+
+}
+
+.create-auction-wrapper .nft-details .title-details{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 5rem;
+}
+
+.create-auction-wrapper .nft-details .title-details .name{
+    align-self: flex-start;
+}
+
+.create-auction-wrapper .nft-details .title-details h2{
+    font-size: var(--fs-extra-extra-large);
+    margin-bottom: 1rem;
+}
+
+.create-auction-wrapper .nft-details .title-details .auction-actions{
+    border: 2px solid var(--clr-neutral-hover);
+    border-radius: 0.75rem;
+    padding: 2rem 2rem;
+    align-self: center;
+}
+
+.create-auction-wrapper .nft-details .title-details .auction-actions h3{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.create-auction-wrapper .nft-details .title-details .auction-actions input{
+    padding: 0.5rem 0.75rem;
+    font-size: var(--fs-large);
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid var(--clr-neutral-hover);
+    background-color: var(--clr-background);
+    color: var(--clr-text);
+}
+
+.create-auction-wrapper .nft-details .title-details .auction-actions button{
+    padding: 0.5rem;
+    color: var(--clr-text);
+    border: none;
+    background-color: var(--clr-green);
+    border-radius: 0.5rem;
+    font-size: var(--fs-large);
+}
+
+.create-auction-wrapper .nft-details .title-details .auction-actions button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}

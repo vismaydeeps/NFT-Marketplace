@@ -6,11 +6,12 @@ import { useState } from 'react';
 import { NFTMarketPlaceContext } from '../../../../Context/NFTMarketPlaceContext';
 import { useNavigate } from 'react-router-dom';
 
-const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount }) => {
+const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount, setAccountValue }) => {
     const [active, setActive] = useState(false);
 
     const [createdNFTs, setCreatedNFTs] = useState([]);
     const [ownedNFTs, setOwnedNFTs] = useState([]);
+
 
     const { fetchNFTS, buyNFT, fetchMyNFTsOrListedNFTs, currentAccount } = useContext(NFTMarketPlaceContext);
 
@@ -63,6 +64,30 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount }) => {
         loadNFTs();
     }, [fetchNFTS]);
 
+    // useEffect(() => {
+    //     const loadOwnedNFTs = async () => {
+    //         try {
+    //             const allNFTs = await fetchMyNFTsOrListedNFTs("");
+    //             const value = 0;
+    //             const updatedOwn = await Promise.all(
+    //                 allNFTs.map(async (nft) => {
+    //                     const metadata = await fetchMetadata(nft.tokenURI);
+    //                     return {
+    //                         ...nft,
+    //                         ...metadata,
+    //                     };
+    //                 })
+    //             );
+    //             setOwnedNFTs(updatedOwn);
+    //             setOwnedNFTCount(updatedOwn.length);
+    //             console.log("owned", allNFTs);
+    //         } catch (error) {
+    //             console.log("Trouble fetching owned NFTs", error);
+    //         }
+    //     };
+    //     loadOwnedNFTs();
+    // }, [fetchMyNFTsOrListedNFTs]);
+
     useEffect(() => {
         const loadOwnedNFTs = async () => {
             try {
@@ -76,9 +101,14 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount }) => {
                         };
                     })
                 );
+
+                // Calculate total sum of NFT prices
+                const totalPrice = updatedOwn.reduce((sum, nft) => sum + (parseFloat(nft.price) || 0), 0);
+                setAccountValue(totalPrice);
                 setOwnedNFTs(updatedOwn);
                 setOwnedNFTCount(updatedOwn.length);
-                console.log("owned",allNFTs);
+                console.log("Owned NFTs:", updatedOwn);
+                console.log("Total Price of Owned NFTs:", totalPrice);
             } catch (error) {
                 console.log("Trouble fetching owned NFTs", error);
             }
@@ -86,11 +116,12 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount }) => {
         loadOwnedNFTs();
     }, [fetchMyNFTsOrListedNFTs]);
 
+
     const redirectResell = (id, uri) => {
         navigate(`/resell?id=${id}&uri=${encodeURIComponent(uri)}`);
     };
 
-    const redirectToAuction = (id,uri) => {
+    const redirectToAuction = (id, uri) => {
         navigate(`/create-auction?id=${id}&uri=${encodeURIComponent(uri)}`);
     };
 
@@ -106,7 +137,9 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount }) => {
                                 <p>{nft.description}</p>
                                 <div className="nft-metrics">
                                     <p className="nft-value">{nft.price} ETH</p>
-                                    <button className="list-nft" onClick={() => redirectResell(nft.tokenId, nft.tokenURI)}>List</button>
+                                   
+                                        <button className="list-nft" onClick={() => redirectResell(nft.tokenId, nft.tokenURI)}>List</button>
+                                        
                                 </div>
                             </div>
                         </div>
@@ -122,7 +155,7 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount }) => {
                                 <p>{nft.description}</p>
                                 <div className="nft-metrics">
                                     <p className="nft-value">{nft.price} ETH</p>
-                                    <button className="auction-button" onClick={() => redirectToAuction(nft.tokenId,nft.tokenURI)}>Auction</button>
+                                    <button className="auction-button" onClick={() => redirectToAuction(nft.tokenId, nft.tokenURI)}>Auction</button>
                                 </div>
                             </div>
                         </div>

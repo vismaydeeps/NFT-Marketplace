@@ -30,6 +30,7 @@ contract NFTMarketPlace is ERC721URIStorage {
         uint256 auctionEndTime;
         uint256 highestBid;
         address payable highestBidder;
+        string metadataHash; 
     }
 
     mapping(uint256 => Auction) public auctions;
@@ -223,14 +224,16 @@ contract NFTMarketPlace is ERC721URIStorage {
     function startAuction(
         uint256 tokenId,
         uint256 startingBid,
-        uint256 duration
+        uint256 duration,
+        string calldata url
     ) public {
         require(!items[tokenId].sold, "Item already sold");
 
         auctions[tokenId] = Auction({
             auctionEndTime: block.timestamp + duration,
             highestBid: startingBid,
-            highestBidder: payable(address(0))
+            highestBidder: payable(address(0)),
+            metadataHash : url
         });
     }
 

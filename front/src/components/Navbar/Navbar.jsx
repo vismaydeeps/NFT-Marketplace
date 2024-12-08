@@ -24,7 +24,7 @@ const Navbar = () => {
                     <ul>
                         <li><Link to="/auctions">Auctions</Link></li>
                         <li><Link to="/for-sale">For Sale</Link></li>
-                        <li><Link to="/your-nfts">Your NFTs</Link></li>
+                        <li><Link to="/your-auctions">Pending Auctions</Link></li>
                         <li><Link to="/create">Create</Link></li>
                         
                     </ul>

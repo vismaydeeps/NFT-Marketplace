@@ -17,6 +17,8 @@ import PlaceBid from './components/PlaceBid/PlaceBid';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { NFTMarketPlaceContext } from '../Context/NFTMarketPlaceContext';
+import UserAuctions from './components/UserAuctions/UserAuctions';
+import TransferNFT from './components/TransferNFT/TransferNFT';
 
 
 const App = () => {
@@ -32,17 +34,18 @@ const App = () => {
       <Navbar />
       <div className="content">
         <Routes>
-          <Route path="/" element={<NFTPage />} />
+          <Route path="/" element={<User />} />
           {/* <Route path="/auctions" element={<Auctions />} /> */}
           <Route path="/auctions" element={<Auctions />} />
           <Route path="/create-auction" element={<CreateAuction />} />
           <Route path="/for-sale" element={<Sale />} />
-          <Route path="/your-nfts" element={<User />} />
+          <Route path="/your-auctions" element={<UserAuctions />} />
           <Route path="/create" element={<CreateNFT />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create-account" element={<CreateAccount />} />
           <Route path="/resell" element={<ResellNFT />} />
           <Route path="/place-bid" element={<PlaceBid />} />
+          <Route path='/transfer' element={<TransferNFT />} />
         </Routes>
       </div>
     </Router>
