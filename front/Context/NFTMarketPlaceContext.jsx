@@ -377,11 +377,11 @@ export const NFTMarketPlaceProvider = ({ children }) => {
         }
     };
 
-    const transferNFT = async (tokenId, recvAddress) => {
+    const transferNFT = async (tokenId,senderAddress, recvAddress) => {
         try {
             const contract = await connectingWithSmartContract();
 
-            const transaction = await contract.transferNFT(tokenId, recvAddress);
+            const transaction = await contract.transferNFT(tokenId,senderAddress, recvAddress);
 
             await transaction.wait();
 

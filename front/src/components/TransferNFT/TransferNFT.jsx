@@ -3,7 +3,7 @@ import './TransferNFT.css';
 import { NFTMarketPlaceContext } from '../../../Context/NFTMarketPlaceContext';
 
 const TransferNFT = () => {
-    const { transferNFT } = useContext(NFTMarketPlaceContext);
+    const { transferNFT, currentAccount } = useContext(NFTMarketPlaceContext);
     const [tokenId, setTokenId] = useState('');
     const [receiverAddress, setReceiverAddress] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +15,7 @@ const TransferNFT = () => {
         }
         try {
             setIsLoading(true);
-            await transferNFT(tokenId, receiverAddress);
+            await transferNFT(tokenId, currentAccount, receiverAddress);
             alert(`NFT with Token ID ${tokenId} successfully transferred to ${receiverAddress}`);
             setTokenId('');
             setReceiverAddress('');
@@ -28,7 +28,7 @@ const TransferNFT = () => {
     };
 
     return (
-        <div className="transfer-nft-container" style={{"color":"white"}}>
+        <div className="transfer-nft-container" style={{ "color": "white" }}>
             <h2>Transfer NFT</h2>
             <div className="transfer-nft-form">
                 <label htmlFor="tokenId">Token ID:</label>
