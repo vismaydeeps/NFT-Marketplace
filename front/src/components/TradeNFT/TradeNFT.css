@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: column;
     gap: 5rem;
+    padding: 1rem 4rem;
+}
+
+.trade-nft-container h2{
+    font-size: var(--fs-extra-extra-large);
 }
 
 .trade-nft-container .trade-left img{

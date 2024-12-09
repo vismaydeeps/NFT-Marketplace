@@ -1,12 +1,12 @@
 .auctions-wrapper{
-    padding: 2rem 4rem;
+    padding: 0rem 4rem;
 }
 
 .auctions-wrapper .auctions-title{
     font-weight: var(--fw-800);
     color: var(--clr-text);
-    font-size: var(--fs-extra-large);
-    margin-left: 4.2rem;
+    font-size: var(--fs-extra-extra-large);
+    /* margin-left: 4.2rem; */
     margin-bottom: 2rem;
 }
 

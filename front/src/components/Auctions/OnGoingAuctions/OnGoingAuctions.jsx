@@ -81,7 +81,7 @@ const OnGoingAuctions = () => {
                             {data.seller.toLowerCase() !== currentAccount.toLowerCase() ? (
                                 <button onClick={() => handlePlaceBid(data.tokenId, data.tokenURI)}>Place Bid</button>
                             ) : (
-                                <button>View Auction</button>
+                                <button disabled className='your-auction'>Your Auction!</button>
                             )}
                         </div>
                     </div>

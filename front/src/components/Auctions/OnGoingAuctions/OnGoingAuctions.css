@@ -125,3 +125,6 @@
     text-align: center;
 }
 
+.ongoing-wrapper .ongoing-options .your-auction{
+    background-color: var(--clr-orange);
+}

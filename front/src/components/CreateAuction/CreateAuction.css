@@ -1,53 +1,53 @@
-.create-auction-wrapper{
+.create-auction-wrapper {
     color: var(--clr-text);
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 1rem;
+    padding: 1rem 4rem;
 }
 
-.create-auction-wrapper img{
+.create-auction-wrapper img {
     width: 15rem;
     height: 15rem;
     border-radius: 0.75rem;
 }
 
-.create-auction-wrapper .nft-details{
+.create-auction-wrapper .nft-details {
     display: flex;
     gap: 2rem;
 
 }
 
-.create-auction-wrapper .nft-details .title-details{
+.create-auction-wrapper .nft-details .title-details {
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
     gap: 5rem;
 }
 
-.create-auction-wrapper .nft-details .title-details .name{
-    align-self: flex-start;
+.create-auction-wrapper .nft-details .title-details .name {
+    align-self: center;
 }
 
-.create-auction-wrapper .nft-details .title-details h2{
+.create-auction-wrapper .nft-details .title-details h2 {
     font-size: var(--fs-extra-extra-large);
     margin-bottom: 1rem;
 }
 
-.create-auction-wrapper .nft-details .title-details .auction-actions{
+.create-auction-wrapper .nft-details .title-details .auction-actions {
     border: 2px solid var(--clr-neutral-hover);
     border-radius: 0.75rem;
     padding: 2rem 2rem;
     align-self: center;
 }
 
-.create-auction-wrapper .nft-details .title-details .auction-actions h3{
+.create-auction-wrapper .nft-details .title-details .auction-actions h3 {
     font-size: 2rem;
     margin-bottom: 2rem;
     margin-top: 1rem;
 }
 
-.create-auction-wrapper .nft-details .title-details .auction-actions input{
+.create-auction-wrapper .nft-details .title-details .auction-actions input {
     padding: 0.5rem 0.75rem;
     font-size: var(--fs-large);
     margin-right: 1rem;
@@ -58,7 +58,7 @@
     color: var(--clr-text);
 }
 
-.create-auction-wrapper .nft-details .title-details .auction-actions button{
+.create-auction-wrapper .nft-details .title-details .auction-actions button {
     padding: 0.5rem;
     color: var(--clr-text);
     border: none;
@@ -67,7 +67,20 @@
     font-size: var(--fs-large);
 }
 
-.create-auction-wrapper .nft-details .title-details .auction-actions button:hover{
+.create-auction-wrapper .nft-details .title-details .auction-actions button:hover {
     cursor: pointer;
     opacity: 0.8;
+}
+
+.create-auction-wrapper .nft-details .title-details .price {
+    /* padding: 1rem; */
+    border: 1px solid var(--clr-orange);
+    width: 40%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.75rem;
+}
+
+.create-auction-wrapper h1{
+    font-size: var(--fs-extra-extra-large);
 }

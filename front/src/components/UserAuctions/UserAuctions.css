@@ -1,7 +1,7 @@
 .user-auction-wrapper .title{
-    color: var(--clr-text);
+    color: var(--clr-text); 
     font-size: var(--fs-extra-extra-large);
-    padding: 1rem;
+    padding: 0rem 4rem;
 }
 
 .ongoing-wrapper {
@@ -130,4 +130,9 @@
 .ongoing-auctions .ongoing-data .date{
     color: var(--clr-red);
     text-align: center;
+}
+
+.user-auction-wrapper .ongoing-wrapper{
+    margin-left: 4rem;
+    margin-top: 1rem;
 }

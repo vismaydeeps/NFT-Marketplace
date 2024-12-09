@@ -126,8 +126,12 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount, setAccountValu
         navigate(`/create-auction?id=${id}&uri=${encodeURIComponent(uri)}`);
     };
 
-    const handleTrade = (tokenId,uri) => {
+    const handleTrade = (tokenId, uri) => {
         navigate(`/trade?id=${tokenId}&uri=${encodeURIComponent(uri)}`);
+    }
+
+    const handleTransfer = (tokenId, tokenURI) => {
+        navigate(`/transfer?id=${tokenId}&uri=${encodeURIComponent(tokenURI)}`);
     }
 
     return (
@@ -143,8 +147,13 @@ const UserNFTs = ({ nftData, setListedNFTCount, setOwnedNFTCount, setAccountValu
                                 <div className="nft-metrics">
                                     <p className="nft-value">{nft.price} ETH</p>
                                     <div className="owned-buttons">
-                                        <button className='trade' onClick={() => handleTrade(nft.tokenId,nft.tokenURI)}>Trade</button>
-                                        <button className="list-nft" onClick={() => redirectResell(nft.tokenId, nft.tokenURI)}>List</button>
+                                        <div className="owned-buttons-top">
+                                            <button className='trade' onClick={() => handleTrade(nft.tokenId, nft.tokenURI)}>Trade</button>
+                                            <button className="list-nft" onClick={() => redirectResell(nft.tokenId, nft.tokenURI)}>List</button>
+                                        </div>
+                                        <div className="owned-buttons-bottom">
+                                            <button className="transfer-owner" onClick={() => handleTransfer(nft.tokenId, nft.tokenURI)}>Transfer ownership</button>
+                                        </div>
                                     </div>
 
                                 </div>

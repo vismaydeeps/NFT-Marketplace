@@ -31,11 +31,11 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-right">
                     <ul>
-                        {currentAccount == "" ?  <li className="navbar-login"><button  onClick={()=>connectWallet()}>Connect</button></li>:<li className="navbar-login">Create</li>} 
+                        {currentAccount == "" ?  <li className="navbar-login"><button  onClick={()=>connectWallet()}>Connect</button></li>:<li className="navbar-login">Connected to Wallet!</li>} 
                         
-                        <li className='navbar-account'>
+                        {/* <li className='navbar-account'>
                             <img src={Account} alt="" />
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>

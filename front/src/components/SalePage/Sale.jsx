@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Sale = () => {
 
-  const { fetchNFTS, buyNFT, currentAccount,fetchActiveAuctions } = useContext(NFTMarketPlaceContext);
+  const { fetchNFTS, buyNFT, currentAccount, fetchActiveAuctions } = useContext(NFTMarketPlaceContext);
 
   const [activeAuctions, setActiveAuctions] = useState([]);
 
@@ -42,7 +42,7 @@ const Sale = () => {
   //   const loadNFTs = async () => {
   //     try {
   //       const allNFTs = await fetchNFTS();
-        
+
   //       const updatedNFTs = await Promise.all(
   //         allNFTs.map(async (nft) => {
   //           const metadata = await fetchMetadata(nft.tokenURI);
@@ -113,7 +113,10 @@ const Sale = () => {
               <div className="sale-nfts">
                 <div className="nft-titles">
                   <p className="nft-name">{nft.name}</p>
-                  <p className="seller-name">by potato</p>
+                  <p className="seller-name">By-
+                     {currentAccount ? `${currentAccount.slice(0, 6)}...${currentAccount.slice(-4)}` : "N/A"}
+                  </p>
+
                 </div>
                 <img src={nft.image} alt="" />
                 <div className="prices">

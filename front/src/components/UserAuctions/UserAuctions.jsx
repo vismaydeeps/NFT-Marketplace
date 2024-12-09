@@ -183,7 +183,7 @@ const UserAuctions = () => {
                                 </div>
                             ))
                         ) : (
-                            <p>No Pending auctions</p>
+                            <p className='pending-auctions'>No Pending auctions</p>
                         )
                     }
                 </div>
